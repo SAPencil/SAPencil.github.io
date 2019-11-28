@@ -1,6 +1,45 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-<h1>Well done, you followed a link!</h1>
+<h2 id="recipe_1">Goat's Cheese and Butternut Lasagne</h2>
+        
+        <ul>
+            <li>Time: 2 hours</li>
+            <li>Serves: 4</li>
+        </ul>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Ingredients</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Goat's cheese</td>
+                    <td> 50 grams</td>
+                </tr>
+                <tr>
+                    <td> Lasagne sheets</td>
+                    <td> 100grams</td>
+                </tr>
+                <tr>
+                    <td> Chopped tomatoes</td>
+                    <td> 1 can</td>
+                </tr>
+                <tr>
+                    <td> Milk</td>
+                    <td> 50ml</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><strong>Step 1:</strong> Cook the tomato sauce.<br>
+        <strong>Step 2:</strong> Roast the butternut squash in olive oil and garlic.<br>
+        <strong>Step 3:</strong> Layer the lasagne sheets, tomato sauce, butternut squash and goats cheese.<br>
+        <strong>Step 4:</strong> Bake for 45 mins.<br>
+        
+        </p>
 </body>
 </html>
