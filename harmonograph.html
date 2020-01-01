@@ -5,7 +5,7 @@
   <script src="processing.js"></script>
  </head>
   <body>
-    <h1> A digital harmonograph!</h1>
+    <h1> A digital harmonograph</h1>
     <p>This applet models how a mechanical harmonograph works. More can be read about the harmonograph <a> here </a> or by reading <a> this book </a> by ___. 
  </p>
    <div id = "displayWindow"></div>
@@ -14,7 +14,8 @@
     var goButton = document.getElementById("go");
     var displayWindowEl = document.getElementById("displayWindow");
     var onButtonClick = function() {
-       displayWindowEl.innerHTML = "the go button is working!<canvas width = "400" height = "400" data-processing-sources="https://sapencil.github.io/harmonograph.pde"></canvas>"
+       displayWindowEl.innerHTML = "<canvas width = "400" height = "400" data-processing-sources="https://sapencil.github.io/harmonograph.pde"></canvas>"
+    console.log("the go button is working!");
     }
      goButton.addEventListener("onclick", onButtonClick);
    
