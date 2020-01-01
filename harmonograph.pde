@@ -6,7 +6,7 @@
     frameRate(10);
 
 var m = 1;
-var n = 0;
+var n = 1.01;
 
 var decay = 0.99995;//0.99995 gives a pleasing amount of decay of the swing of the pendulum. I'm not sure how 'natural' this decay is.
 
