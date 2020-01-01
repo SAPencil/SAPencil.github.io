@@ -12,7 +12,8 @@
    <button id="go" type="button">Go!</button>
    <script>
     var onButtonClick = function() {
-       document.displayWindow.innerHTML = "<canvas width = "400" height = "400" data-processing-sources="https://sapencil.github.io/harmonograph.pde"></canvas>"
+       var displayWindow = document.getElementById("displayWindow");
+       displayWindow.innerHTML = "<canvas width = "400" height = "400" data-processing-sources="https://sapencil.github.io/harmonograph.pde"></canvas>"
    </script>
     </body>
  </html>
