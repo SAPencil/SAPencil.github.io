@@ -4,8 +4,7 @@
 void setup() {
 
   size(400, 400);
-
-  background(153);
+;
 
 }
 var m = 1;
