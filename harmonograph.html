@@ -8,9 +8,9 @@
     <h1> A digital harmonograph!</h1>
     <p>This applet models how a mechanical harmonograph works. More can be read about the harmonograph <a> here </a> or by reading <a> this book </a> by ___. 
  </p>
-  
+   <div id = "displayWindow"></div>
    <button id="go" type="button">Go!</button>
    var onButtonClick = function() {
-       <canvas width = "400" height = "400" data-processing-sources="https://sapencil.github.io/harmonograph.pde"></canvas>
+       document.displayWindow.innerHTML = "<canvas width = "400" height = "400" data-processing-sources="https://sapencil.github.io/harmonograph.pde"></canvas>"
  </body>
  </html>
