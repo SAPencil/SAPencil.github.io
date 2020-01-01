@@ -3,7 +3,7 @@
 //This program visualises the harmonic ratio of m:n, in the same way that a mechanical harmonograph does using two lateral pendulums. Consonant ratios like the perfect 5th (3:2) will produce simple patterns. Increasingly dissonant ratios will produce increasingly complicated patterns.
 
     size(400,400);
-    frameRate(10);
+    frameRate(1000);
 
 var m = 1;
 var n = 1.01;
