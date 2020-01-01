@@ -18,7 +18,7 @@ translate(width/2, height/2);
 scale(1, -1);  
 strokeWeight(0.5);
 var t = 100;
-var amp=width/2;
+var amp=width/2-5;
 var pencil = function() {
     this.xpos = amp*sin(m*(t-releaseDelay*180));
     this.ypos = amp*sin(n*t);
