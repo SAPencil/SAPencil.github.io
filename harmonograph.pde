@@ -2,6 +2,11 @@
 
 //This program visualises the harmonic ratio of m:n, in the same way that a mechanical harmonograph does using two lateral pendulums. Consonant ratios like the perfect 5th (3:2) will produce simple patterns. Increasingly dissonant ratios will produce increasingly complicated patterns.
 
+setup() {
+    size(400,400);
+    frameRate(1000);
+}
+
 var m = 1;
 var n = 1.01;
 
@@ -11,8 +16,6 @@ var refreshRate = 1;//to speed up the drawing, increase this variable, although 
 
 var releaseDelay =0.5;//Different patterns can be observed if the second pendulum is released after the first (or in this program, started at a different point in its swing). Enter the number (or fraction) of swings of the first pendulum you would like to pass before releasing the second.
 
-
-frameRate(1000);
 
 translate(width/2, height/2);
 scale(1, -1);  
