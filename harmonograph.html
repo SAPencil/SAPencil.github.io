@@ -15,11 +15,11 @@
     var goButton = document.getElementById("go");
     var displayWindowEl = document.getElementById("displayWindow");
     var onButtonClick = function() {
-        displayWindowEl.dataProcessingSources = "https://sapencil.github.io/harmonograph.pde";
+        displayWindowEl.setAttribute("data-processing-sources","https://sapencil.github.io/harmonograph.pde");
          displayWindowEl.width = "100";
         goButton.setAttribute("style","color:rgb(255,255,0);");
         console.log(goButton.id);
-        console.log(displayWindow.dataProcessingSources);
+        console.log(displayWindow.data-processing-sources);
    
     }
      goButton.addEventListener("click", onButtonClick);
