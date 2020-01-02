@@ -17,6 +17,8 @@
     var onButtonClick = function() {
         displayWindowEl.dataProcessingSources = "https://sapencil.github.io/harmonograph.pde";
         goButton.setAttribute("style","color:rgb(255,255,0);");
+        console.log(goButton.id);
+        console.log(displayWindow.dataProcessingSources);
    
     }
      goButton.addEventListener("click", onButtonClick);
