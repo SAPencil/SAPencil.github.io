@@ -6,7 +6,7 @@ size(400,400);
 var m = 1;
 var n = 1.01;
 
-var decay = 0.9995;//0.99995 gives a pleasing amount of decay of the swing of the pendulum. I'm not sure how 'natural' this decay is.
+var decay = 0.00005;//0.00005 gives a pleasing amount of decay of the swing of the pendulum. I'm not sure how 'natural' this decay is.
 
 var refreshRate = 0.1;//to speed up the drawing, increase this variable, although large values will reveal jagged edges to the curves.
 
@@ -54,7 +54,7 @@ draw = function() {
     fill(0,0,0);
     ellipse(pencil.xpos,width/2,5,5);
     ellipse(width/2,pencil.ypos,5,5);
-    amp *= decay;
+    amp *= (1-decay);
     t += refreshRate;
     
     
