@@ -21,10 +21,10 @@ strokeWeight(0.5);
 var t = 100;
 var amp=width/2-5;
 var pencil = function() {
-    this.xpos = amp*sin(m*(t-releaseDelay*180));
-    this.ypos = amp*sin(n*t);
-    this.oldxPos = amp*sin(m*(t-releaseDelay*180));
-    this.oldypos = amp*sin(n*t); 
+    this.xpos = amp*Math.sin(m*(t-releaseDelay*Math.PI));
+    this.ypos = amp*Math.sin(n*t);
+    this.oldxPos = amp*Math.sin(m*(t-releaseDelay*Math.PI));
+    this.oldypos = amp*Math.sin(n*t); 
 };
 
 pencil.prototype.update = function(newX,newY) {
@@ -48,7 +48,7 @@ draw = function() {
     rect(-width/2,width/2-5,width,5);
     rect(width/2-5,-width/2,5,height);
     rect(0,width-10,10,width);
-    pencil.update(amp*sin(m*(t-releaseDelay*180)),amp*sin(n*t));
+    pencil.update(amp*Math.sin(m*(t-releaseDelay*Math.PI)),amp*Math.sin(n*t));
     stroke(pencil.xpos%255, pencil.ypos%255, t%255);
     line(pencil.oldxpos,pencil.oldypos,pencil.xpos,pencil.ypos);
     fill(0,0,0);
