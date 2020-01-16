@@ -8,16 +8,15 @@
     <h1> A digital harmonograph</h1>
     <p>This applet models how a mechanical harmonograph works. More can be read about the harmonograph <a> here </a> or by reading <a> this book </a> by ___. 
  </p>
-   <canvas id = "displayWindow" width = "400" height = "400" style="border:1px solid #000000;"></canvas>
+   <div id = "displayWindow"></div>
+   
    <button id="go" type="button">Go!</button>
 
    <script>
     var goButton = document.getElementById("go");
     var displayWindowEl = document.getElementById("displayWindow");
     var onButtonClick = function() {
-        displayWindowEl.setAttribute("data-processing-sources","https://sapencil.github.io/harmonograph.pde");
-
-   
+        displayWindowEl..innerHTML("<canvas  width = \"400\" height = \"400\" style=\"border:1px solid #000000;\" data-processing-sources = \"https://sapencil.github.io/harmonograph.pde\"></canvas>");
     }
      goButton.addEventListener("click", onButtonClick);
    console.log(5);
