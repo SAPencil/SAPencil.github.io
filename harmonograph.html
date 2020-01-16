@@ -15,10 +15,11 @@
    <script>
     var goButton = document.getElementById("go");
     var displayWindowEl = document.getElementById("displayWindow");
+    var heading =  document.getElementByTagName("h1");
     
     var onButtonClick = function() {
-     document.getElementByTagName("h1").innerHTML = "You pressed a button!";   
-     displayWindowEl.innerHTML = "<canvas  width = \"400\" height = \"400\" style=\"border:1px solid #000000;\" data-processing-sources = \"https://sapencil.github.io/harmonograph.pde\"></canvas>";
+    heading.innerHTML = "You pressed a button!";   
+    displayWindowEl.innerHTML = "<canvas  width = \"400\" height = \"400\" style=\"border:1px solid #000000;\" data-processing-sources = \"https://sapencil.github.io/harmonograph.pde\"></canvas>";
     }
      goButton.addEventListener("click", onButtonClick);
    console.log(5);
