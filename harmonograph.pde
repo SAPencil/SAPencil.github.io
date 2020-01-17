@@ -2,9 +2,10 @@
 frameRate(1000);
 size(400,400);
 //This program visualises the harmonic ratio of m:n, in the same way that a mechanical harmonograph does using two lateral pendulums. Consonant ratios like the perfect 5th (3:2) will produce simple patterns. Increasingly dissonant ratios will produce increasingly complicated patterns.
+import m from 
 
-var m = 1;
-var n = 1.01;
+export var m = 1;
+export var n = 1.01;
 
 var decay = 0.00005;//0.00005 gives a pleasing amount of decay of the swing of the pendulum. I'm not sure how 'natural' this decay is.
 
