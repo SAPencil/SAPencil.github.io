@@ -6,27 +6,24 @@
  </head>
   <body>
     <h1> A digital harmonograph</h1>
-    <p>This applet models how a mechanical harmonograph works. More can be read about the harmonograph <a> here </a> or by reading <a> this book </a> by ___. 
+    <p>This applet models how a mechanical harmonograph works. It was <a href = "https://www.amazon.co.uk/Harmonograph-Visual-Guide-Mathematics-Wooden/dp/1904263364/ref=sr_1_1?crid=27T225X4P31UA&keywords=harmonograph&qid=1579366634&sprefix=harmonograph%2Caps%2C270&sr=8-1" target = "_blank">this book</a> by Anthony Ashton which initially got me intrugued. Want a quick explanation of a harmongraph? Watch <a href = "https://www.youtube.com/watch?v=H4YQonwQUDs" target = "_blank">this video</a> 
  </p>
    <div id = "displayWindow">
-    <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "https://sapencil.github.io/harmonograph.pde">
+    <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "/harmonograph.pde">
     </canvas>
    </div>
-   
+   Pendulum 1 frequency: <input id = "but1" type = "number" value = 1></input>
+   Pendulum 2 frequency: <input id = "but2" type = "number" value = 1.01></input>
    <button id="go" type="button">Go!</button>
-
+   
    <script>
     var goButton = document.getElementById("go");
     var displayWindowEl = document.getElementById("displayWindow");
-    var heading =  document.getElementsByTagName("h1");
     
-    var onButtonClick = function() {
-    heading.innerHTML = "You pressed a button!";   
-    displayWindowEl.innerHTML = "<canvas  width = \"400\" height = \"400\" style=\"border:1px solid #000000;\" data-processing-sources = \"https://sapencil.github.io/harmonograph.pde\"></canvas>";
+    onButtonClick = function() {
+
     }
      goButton.addEventListener("click", onButtonClick);
-   import m from 'https://sapencil.github.io/harmonograph.pde';
-    console.log(m);
-   </script>
+      </script>
     </body>
  </html>
