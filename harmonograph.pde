@@ -5,8 +5,8 @@ size(400,400);
 
 
 
-    var m = document.getElementById("but1").value;
-    var n = document.getElementById("but2").value;
+    var m = freq1;
+    var n = freq2;
     var decay = 0.00005;//0.00005 gives a pleasing amount of decay of the swing of the pendulum. I'm not sure how 'natural' this decay is.
     var refreshRate = 0.01;//to speed up the drawing, increase this variable, although large values will reveal jagged edges to the curves.
     var releaseDelay =0.5;//Different patterns can be observed if the second pendulum is released after the first (or in this program, started at a different point in its swing). Enter the number (or fraction) of swings of the first pendulum you would like to pass before releasing the second.
@@ -34,9 +34,11 @@ size(400,400);
 
     var pencil = new pencil();
 
+
+
     draw = function() {
- var m = document.getElementById("but1").value;
-    var n = document.getElementById("but2").value;
+    var m = freq1;
+    var n = freq2;
         fill(255,255,255);
         stroke(255,255,255);
         rect(-width/2,width/2-5,width,5);
@@ -50,4 +52,5 @@ size(400,400);
         ellipse(width/2,pencil.ypos,5,5);
         amp *= (1-decay);
         t += refreshRate;
+
     }

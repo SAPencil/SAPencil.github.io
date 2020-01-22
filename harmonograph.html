@@ -12,16 +12,23 @@
     <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "/harmonograph.pde">
     </canvas>
    </div>
-   Pendulum 1 frequency: <input id = "but1" type = "number" value = 1></input>
-   Pendulum 2 frequency: <input id = "but2" type = "number" value = 1.01></input>
+   Pendulum 1 frequency: <input id = "input1" type = "number" value = 1></input>
+   Pendulum 2 frequency: <input id = "input2" type = "number" value = 1.01></input>
    <button id="go" type="button">Go!</button>
    
    <script>
     var goButton = document.getElementById("go");
-    var displayWindowEl = document.getElementById("displayWindow");
+    var input1 = document.getElementById("input1").value;
+    var input2 = document.getElementById("input2").value;
     
+    freq1 = 1;
+    freq2 = 1.01;
     onButtonClick = function() {
-
+      var input1 = document.getElementById("input1").value;
+      var input2 = document.getElementById("input2").value;
+      freq1 = input1;
+      freq2 = input2;
+      console.log(input1);
     }
      goButton.addEventListener("click", onButtonClick);
       </script>
