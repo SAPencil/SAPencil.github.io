@@ -19,13 +19,15 @@
    <script>
     var goButton = document.getElementById("go");
    
-    
+    var clear = false;
     var m = 1;
     var n = 1.01;
     onButtonClick = function() {
+      clear = true;
       m = document.getElementById("input1").value;
       n = document.getElementById("input2").value;
-   
+      
+      
       console.log(input1);
     }
      goButton.addEventListener("click", onButtonClick);
