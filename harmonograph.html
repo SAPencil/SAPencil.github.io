@@ -14,6 +14,8 @@
    </div>
    Pendulum 1 frequency: <input id = "input1" type = "number" value = 1></input>
    Pendulum 2 frequency: <input id = "input2" type = "number" value = 1.01></input>
+   <br>
+   Refresh rate: <input id = "refreshRate" type = "number" value = 0.01></input>
    <button id="go" type="button">Go!</button>
    
    <script>
@@ -22,13 +24,14 @@
     var clear = false;
     var m = 1;
     var n = 1.01;
+    var refreshRate = 1.01;
     onButtonClick = function() {
       clear = true;
       m = document.getElementById("input1").value;
       n = document.getElementById("input2").value;
+      refreshRate = document.getElementById("refreshRate").value;
       
       
-      console.log(input1);
     }
      goButton.addEventListener("click", onButtonClick);
       </script>

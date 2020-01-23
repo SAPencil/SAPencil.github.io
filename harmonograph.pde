@@ -15,7 +15,7 @@ background(240,240,240);
     scale(1, -1);  
 
     strokeWeight(0.5);
-    var t = 100;
+    var t = 0;
     var amp=width/2-5;
 
     var pencil = function() {
@@ -51,7 +51,7 @@ background(240,240,240);
         ellipse(width/2,pencil.ypos,5,5);
         amp *= (1-decay);
         t += refreshRate;
-
+        
         fill(240,240,240);
         stroke(255,255,255);
      
@@ -60,6 +60,7 @@ background(240,240,240);
         this.oldypos = amp*Math.sin(n*t); 
         rect(-width/2,-width/2,width,width);
         clear = false;
+        amp = width/2-5;
         
         }
     }
