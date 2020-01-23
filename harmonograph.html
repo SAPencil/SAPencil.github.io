@@ -18,16 +18,14 @@
    
    <script>
     var goButton = document.getElementById("go");
-    var input1 = document.getElementById("input1").value;
-    var input2 = document.getElementById("input2").value;
+   
     
-    freq1 = 1;
-    freq2 = 1.01;
+    var m = 1;
+    var n = 1.01;
     onButtonClick = function() {
-      var input1 = document.getElementById("input1").value;
-      var input2 = document.getElementById("input2").value;
-      freq1 = input1;
-      freq2 = input2;
+      m = document.getElementById("input1").value;
+      n = document.getElementById("input2").value;
+   
       console.log(input1);
     }
      goButton.addEventListener("click", onButtonClick);
