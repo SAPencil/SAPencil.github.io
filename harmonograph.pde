@@ -17,12 +17,14 @@ background(240,240,240);
     strokeWeight(0.5);
     var t = 0;
     var amp=width/2-5;
+    var a = 1;
+    var b = 1;
 
     var pencil = function() {
-        this.xpos = amp*Math.sin(m*(t-releaseDelay*Math.PI));
-        this.ypos = amp*Math.sin(n*t);
-        this.oldxPos = amp*Math.sin(m*(t-releaseDelay*Math.PI));
-        this.oldypos = amp*Math.sin(n*t); 
+        this.xpos = amp*(Math.sin(m*(t-releaseDelay*Math.PI))+a*Math.cos(t));
+        this.ypos = amp*(Math.sin(n*t)+b*Math.sin(t));
+        this.oldxPos = amp*(Math.sin(m*(t-releaseDelay*Math.PI)+a*Math.cos(t)));
+        this.oldypos = amp*(Math.sin(n*t)+b*Math.sin(t)); 
     };
 
     pencil.prototype.update = function(newX,newY) {
@@ -43,7 +45,7 @@ background(240,240,240);
         rect(-width/2,width/2-5,width,5);
         rect(width/2-5,-width/2,5,height);
         rect(0,width-10,10,width);
-        pencil.update(amp*Math.sin(m*(t-releaseDelay*Math.PI)),amp*Math.sin(n*t));
+        pencil.update(amp*(Math.sin(m*(t-releaseDelay*Math.PI))+a*Math.cos(t))),amp*(Math.sin(n*t)+b*Math.sin(t));
         stroke(pencil.xpos%255, pencil.ypos%255, t%255);
         line(pencil.oldxpos,pencil.oldypos,pencil.xpos,pencil.ypos);
         fill(0,0,0);
@@ -51,6 +53,7 @@ background(240,240,240);
         ellipse(width/2,pencil.ypos,5,5);
         amp *= (1-decay);
         t += refreshRate;
+        console.log(pencil.xpos);
         
         fill(240,240,240);
         stroke(255,255,255);
@@ -63,4 +66,5 @@ background(240,240,240);
         amp = width/2-5;
         
         }
+
     }

@@ -3,21 +3,33 @@
  <head>
   <title> Digital Harmonograph</title>
   <script src="processing.js"></script>
- </head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+</head>
   <body>
-    <h1> A digital harmonograph</h1>
+    <section class = "hero is-primary">
+      <div class = "hero-body">
+        <div class = "container">
+          <h1 class = "title"> A digital harmonograph</h1>
+        </div>
+      </div>
+    </section>
+    
     <p>This applet models how a mechanical harmonograph works. It was <a href = "https://www.amazon.co.uk/Harmonograph-Visual-Guide-Mathematics-Wooden/dp/1904263364/ref=sr_1_1?crid=27T225X4P31UA&keywords=harmonograph&qid=1579366634&sprefix=harmonograph%2Caps%2C270&sr=8-1" target = "_blank">this book</a> by Anthony Ashton which initially got me intrugued. Want a quick explanation of a harmongraph? Watch <a href = "https://www.youtube.com/watch?v=H4YQonwQUDs" target = "_blank">this video</a> 
  </p>
    <div id = "displayWindow">
     <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "/harmonograph.pde">
     </canvas>
    </div>
-   Pendulum 1 frequency: <input id = "input1" type = "number" value = 1></input>
-   Pendulum 2 frequency: <input id = "input2" type = "number" value = 1.01></input>
-   <br>
-   Refresh rate: <input id = "refreshRate" type = "number" value = 0.01></input>
-   <button id="go" type="button">Go!</button>
-   
+   <div class = "card">
+    <div class = "card content">
+    Pendulum 1 frequency: <input class = "input is-small" id = "input1" type = "number" value = 1></input>
+    Pendulum 2 frequency: <input class = "input is-small" id = "input2" type = "number" value = 1.01></input>
+    Refresh rate: <input class = "input is-small" id = "refreshRate" type = "number" value = 0.01></input>
+    <button class = "button" id="go" type="button">Go!</button>
+    </div>
+  </div>
    <script>
     var goButton = document.getElementById("go");
    
