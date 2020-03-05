@@ -1,10 +1,153 @@
 <!DOCTYPE html>
-<html>
-    <head></head>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sam Harvey-Brewin Portfolio Website</title>
+        <link rel = "stylesheet" 
+        href = "https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" 
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+        
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" href = "/styles.css">
+    </head>
     <body>
-    Here's a selection of stuff that I've done while learning to code
-        <ul>
-            <li> <a href = "/harmonograph.html"> An online harmonograph </a> </li>
-        </ul>
+        <header>
+                
+                <div class="logo">
+                    SAPencil
+                </div>
+                <button class="nav-toggle" aria-label="toggle navigation">
+                    <span class = "hamburger"></span>
+                </button>
+                <nav class = "nav">
+                    <ul class = "nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">My work</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                  
+                    </ul>
+                    
+                </nav>
+        </header>
+        <!-- Introduction -->
+        <section class="intro" id="home">
+            <h1 class="section__title section__title--intro">
+                Hi, I am <strong>Sam Harvey-Brewin</strong>
+            </h1>
+            <p class="section__subtitle section__subtitle--intro">Aspiring software developer</p>
+            <img src="/pictures/head shot.jpg" alt = "a picture of Sam" class="intro__img">
+        </section>
+
+        <!--About me-->
+        <section class="about-me" id = "about">
+            <h2 class="section__title section__title--about">Who I am</h2>
+            <p class="section__subtitle section__subtitle--about">from Teacher to Techie</p>
+
+            <div class="about-me__body">
+                <p>I am a qualified Maths Teacher. And that’s what I’ve filled most of my day with for the last five or so years. It was fun! But at some point in that time, I caught the coding bug. And now it’s got to the point where I can’t ignore it anymore! I’m taking the plunge and getting myself into a tech job.</p>
+               <p>In my spare time I’ve been using online tutorials to learn JavaScript, HTML and CSS (along with some brief intros to other languages such as SQL). The original motivation was to find out how things work – I was troubled by the fact that I had no idea how 90% of the things I touched and interacted with worked. But once I found out how they did work, then I got really excited, and found myself engrossed in little projects, challenges and rabbit holes of inquiry. This website has a few such projects. I hope you enjoy them!</p><p></p>
+            </div>
+
+            <img src="/Pictures/sam in sunglasses.jpg" alt="Sam smiling in sunglasses" class = "about-me__img">
+        </section>
+
+        <!-- My work-->
+        <section class="my-work" id="work">
+            <h2 class="section__title section__title--work">My work</h2>
+            <p class="section__subtitle section__subtitle--work">Things I have made in the course of my learning</p>
+            <div class="portfolio">
+
+            <!-- Portfolio item 01-->
+                <a href = "/harmonograph.html" class="portfolio__item">
+                    <img src="/pictures/harmonographexample.png" alt="A harmonograph example" class="portfolio__img">
+                </a>
+            <!-- /portfolio item 01-->
+
+            <!-- Portfolio item 02-->
+
+                <a href = "/ants.html" class="portfolio__item">
+                    <img src="/pictures/ants.png" alt="An generated ant colony" class="portfolio__img">
+                </a>
+            <!-- /portfolio item 02-->
+
+            <!-- Portfolio item 03-->
+
+                <a href = "/ants.html" class="portfolio__item">
+                    <img src="/pictures/ants.png" alt="An generated ant colony" class="portfolio__img">
+                </a>
+            <!-- /portfolio item 03-->
+            
+            <!-- Portfolio item 04-->
+
+                <a href = "/ants.html" class="portfolio__item">
+                    <img src="/pictures/ants.png" alt="An generated ant colony" class="portfolio__img">
+                </a>
+            <!-- /portfolio item 04-->
+
+            <!-- Portfolio item 05-->
+
+                <a href = "/ants.html" class="portfolio__item">
+                    <img src="/pictures/ants.png" alt="An generated ant colony" class="portfolio__img">
+                </a>
+            <!-- /portfolio item 05-->
+
+            
+            <!-- Portfolio item 06-->
+
+                <a href = "/ants.html" class="portfolio__item">
+                    <img src="/pictures/ants.png" alt="An generated ant colony" class="portfolio__img">
+                </a>
+            <!-- /portfolio item 06-->
+
+            
+            <!-- Portfolio item 07-->
+
+                <a href = "/ants.html" class="portfolio__item">
+                    <img src="/pictures/ants.png" alt="An generated ant colony" class="portfolio__img">
+                </a>
+            <!-- /portfolio item 07-->
+            </div>
+
+            <!-- /portfolio-->
+
+        </section>
+
+ 
+
+        <footer class="footer">
+            <a href="mailto:sam@brewin.org.uk" class="footer__link">sam@brewin.org.uk</a>
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://twitter.com/SamABrewin">
+                        <i class="fab fa-twitter"></i>
+                        Twitter
+                    </a>
+                    </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/SAPencil">
+                        <i class="fab fa-github"></i>
+                        Github
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href = "https://www.khanacademy.org/profile/SAPencil/">
+                    <img src = "Pictures/khan-logo-vertical-transparent.new.png"> 
+                    Khan Academy
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/samuel-harvey-brewin-626606116/">
+                        <i class="fab fa-linkedin-in"></i>
+                        Linkedin
+                    </a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="index.js"></script>
     </body>
 </html>
