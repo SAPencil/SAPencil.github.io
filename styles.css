@@ -116,7 +116,8 @@ h3 {font-size: var(--fs-h3)}
 }
 
 .section__subtitle--intro,
-.section__subtitle--about {
+.section__subtitle--about,
+.portfolio-info__subtitle {
     background: var(--clr-accent);
     padding: .25em 1em;
     font-family: var(--ff-secondary);
@@ -232,7 +233,6 @@ header {
 .hamburger::after {bottom: 6px;}
  /*  Intro section  */
 
-/* TO DO NEXT: find out what this frickin hamburger is. Why is mine aligning left instead of right?*/
 .intro {
     position: relative;
 }
@@ -345,7 +345,7 @@ header {
 }
 
 .portfolio__img:hover,
-portforlio__item:focus .portfolio__img {
+.portfolio__item:focus .portfolio__img {
     transform: scale(1.2);
     opacity: .75;
 
@@ -417,5 +417,44 @@ portforlio__item:focus .portfolio__img {
 }
 
 .display-window {
-    
+    display:
+}
+
+@media (min-width: 600px) {
+    .portfolio-info {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas:
+            "subtitle img"
+            "text img";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .portfolio-info__img {
+
+        grid-area: img;
+        max-width: 250px;
+        min-width: 200px;
+        position: relative;
+        z-index: 2;
+        box-shadow: var(--bs);
+        top: -1em;
+    }
+
+    .portfolio-info__text {
+        grid-area: text;
+        min-width: 400px;
+
+    }
+
+    .portfolio-info__subtitle {
+        grid-area: subtitle;
+        grid-column: -1/1;
+        justify-content: space-between;
+        align-self: start;
+        position: relative;
+        width: calc(100% + 1em)
+    }
 }

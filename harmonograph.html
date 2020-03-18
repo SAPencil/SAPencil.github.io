@@ -72,9 +72,9 @@
       </div>
       <div class = "portfolio-content__interface">
         
-        Pendulum 1 frequency: <input type = "number" value = 1></input>
+        Pendulum 1 frequency: <input type = "number" value = 1 id = "input1"></input>
         
-        Pendulum 2 frequency: <input type = "number" value = 1.01></input>
+        Pendulum 2 frequency: <input type = "number" value = 1.01 id = "input2"></input>
         
         <button class = "btn" id="go" type="button">Go!</button>
         
@@ -82,7 +82,7 @@
     </section>
     <script src="index.js"></script>
     <script>
-       var goButton = document.getElementById("go");
+      var goButton = document.getElementById("go");
     
       var clear = false;
       var m = 1;
@@ -92,12 +92,9 @@
         clear = true;
         m = document.getElementById("input1").value;
         n = document.getElementById("input2").value;
-        refreshRate = document.getElementById("refreshRate").value;
-        
-        
-        
       }
       goButton.addEventListener("click", onButtonClick);
+
     </script>
   </body>
  </html>
