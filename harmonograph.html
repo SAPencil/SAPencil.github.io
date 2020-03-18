@@ -14,11 +14,20 @@
     
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700&display=swap" rel="stylesheet">
     <link rel = "stylesheet" href = "/styles.css">
+    <!-- Global site tag (gtag.js) - Google Analytics  I don't need to track usage of this website. But I'm experimenting to understand how tags and analytics work-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161015048-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-161015048-1');
+    </script>
   </head>
   <body> 
     <header>        
       <div class="logo">
-          <img src="/pictures/head shot.jpg" alt="SAPencil logo">
+        SAPencil
       </div>
       <button class="nav-toggle" aria-label="toggle navigation">
           <span class = "hamburger"></span>
@@ -37,33 +46,43 @@
       <h1 class="section__title section__title--intro">
           A digital <strong>harmonograph</strong>
       </h1>
-      <p class="section__subtitle section__subtitle--intro">A hypnotic delve in a Victorian curiostity</p>
+      <p class="section__subtitle section__subtitle--intro">A hypnotic curve generator</p>
       <img src="/pictures/harmonographexample.png" alt = "an example of harmongraph" class="intro__img">
     </section>
 
-    <div class="portfolio-item-individual">
-      <p>This applet models how a mechanical harmonograph works. Reading <a href = "https://www.amazon.co.uk/Harmonograph-Visual-Guide-Mathematics-Wooden/dp/1904263364/ref=sr_1_1?crid=27T225X4P31UA&keywords=harmonograph&qid=1579366634&sprefix=harmonograph%2Caps%2C270&sr=8-1" target = "_blank" style = "font-style:italic;">Harmonograph: A Visual Guide to the Mathematics of Music by Anthony Ashton</a> initially got me intrugued by harmonographs. Watch <a href = "https://www.youtube.com/watch?v=H4YQonwQUDs" target = "_blank">this video</a> to get a quick idea of how they work. 
+    
+    <section class="portfolio-info">
+    
+      <p class ="portfolio-info__text" >This applet models a mechanical harmonograph, a mechanical apparatus that employs pendulums to create a geometric image. It can be viewed as a visualisation of harmonic consonance and dissonance, an area of particular interest to me as a musician. Reading <a href = "https://www.amazon.co.uk/Harmonograph-Visual-Guide-Mathematics-Wooden/dp/1904263364/ref=sr_1_1?crid=27T225X4P31UA&keywords=harmonograph&qid=1579366634&sprefix=harmonograph%2Caps%2C270&sr=8-1" target = "_blank" style = "font-style:italic;">Harmonograph: A Visual Guide to the Mathematics of Music by Anthony Ashton</a> initially got me interested in harmonographs. Watch <a href = "https://www.youtube.com/watch?v=H4YQonwQUDs" target = "_blank">this video</a> to get a quick idea of how they work. 
       </p>
-      <img src="Pictures/harmonograph.jpg">
-      <p>Play around with the frequencies of the two pendulums to see what patterns you can make!</p>
-    </div>
+      <img src="Pictures/harmonograph.jpg" class ="portfolio-info__img">
+      <p class="portfolio-info__subtitle section__subtitle">What's a harmonograph?         
+      </p>
+    
+    </section>
         
-        
-    <div class = "display-window">
-      <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "/harmonograph.pde">
-      </canvas>
-    </div>
-    <div class = "card">
-      <div class = "card content">
-      Pendulum 1 frequency: <input class = "input is-small" id = "input1" type = "number" value = 1></input>
-      Pendulum 2 frequency: <input class = "input is-small" id = "input2" type = "number" value = 1.01></input>
       
-      <button class = "btn" id="go" type="button">Go!</button>
+      <p>Play around with the frequencies of the two pendulums to see what patterns you can make!</p>
+      
+
+    <section class = "portfolio-content">
+      <div class = "portfolio-content__display">
+        <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "/harmonograph.pde">
+        </canvas>
       </div>
-    </div>
+      <div class = "portfolio-content__interface">
+        
+        Pendulum 1 frequency: <input type = "number" value = 1></input>
+        
+        Pendulum 2 frequency: <input type = "number" value = 1.01></input>
+        
+        <button class = "btn" id="go" type="button">Go!</button>
+        
+      </div>
+    </section>
     <script src="index.js"></script>
     <script>
-      var goButton = document.getElementById("go");
+       var goButton = document.getElementById("go");
     
       var clear = false;
       var m = 1;
@@ -74,6 +93,7 @@
         m = document.getElementById("input1").value;
         n = document.getElementById("input2").value;
         refreshRate = document.getElementById("refreshRate").value;
+        
         
         
       }
