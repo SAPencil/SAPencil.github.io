@@ -1,7 +1,7 @@
  <!DOCTYPE html>
  <html>
   <head>
-    <title> Digital Harmonograph</title>
+    <title> Ant colony</title>
     <script src="processing.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <meta charset="UTF-8">
@@ -44,54 +44,47 @@
 
     <section class="intro">
       <h1 class="section__title section__title--intro">
-          A digital <strong>harmonograph</strong>
+          A simulated <strong>Ant Colony</strong>
       </h1>
-      <p class="section__subtitle section__subtitle--intro">A hypnotic curve generator</p>
+      <p class="section__subtitle section__subtitle--intro">An exploration of random walks</p>
       <img src="/pictures/harmonographexample.png" alt = "an example of harmongraph" class="intro__img">
     </section>
 
     
     <section class="portfolio-info">
     
-      <p class ="portfolio-info__text" >This applet models a mechanical harmonograph, a mechanical apparatus that employs pendulums to create a geometric image. It can be viewed as a visualisation of harmonic consonance and dissonance, an area of particular interest to me as a musician. Reading <a href = "https://www.amazon.co.uk/Harmonograph-Visual-Guide-Mathematics-Wooden/dp/1904263364/ref=sr_1_1?crid=27T225X4P31UA&keywords=harmonograph&qid=1579366634&sprefix=harmonograph%2Caps%2C270&sr=8-1" target = "_blank" style = "font-style:italic;">Harmonograph: A Visual Guide to the Mathematics of Music by Anthony Ashton</a> initially got me interested in harmonographs. Watch <a href = "https://www.youtube.com/watch?v=H4YQonwQUDs" target = "_blank">this video</a> to get a quick idea of how they work. 
+      <p class ="portfolio-info__text" > This applet has a few 'walkers' who all have some amount of randomness in their directional choices, but tend to follow the leader. The leader ant has randomness in her directional choices too, but tends to follow YOU. Try pressing arrow buttons on your keyboard to lure the leader up, down, left or right.
       </p>
-      <img src="/pictures/harmonograph.jpg" class ="portfolio-info__img">
-      <p class="portfolio-info__subtitle section__subtitle">What's a harmonograph?         
+      <img src="/pictures/leaderAnt.png" class ="portfolio-info__img">
+      <p class="portfolio-info__subtitle section__subtitle">Applet         
       </p>
     
     </section>
         
-      
-      <p>Play around with the frequencies of the two pendulums to see what patterns you can make!</p>
-      
-
     <section class = "portfolio-content">
       <div class = "portfolio-content__display">
-        <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "/harmonograph.pde">
+        <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "/antcolony.pde">
         </canvas>
       </div>
-      <div class = "portfolio-content__interface">
+      <!-- The button for changing number of ants doesn't work at the moment 
+        <div class = "portfolio-content__interface">
         
-        Pendulum 1 frequency: <input type = "number" value = 1 id = "input1"></input>
-        
-        Pendulum 2 frequency: <input type = "number" value = 1.01 id = "input2"></input>
+        Number of Ants: <input type = "number" value = 100 id = "input1"></input>
         
         <button class = "btn" id="go" type="button">Go!</button>
         
       </div>
+    -->
     </section>
     <script src="index.js"></script>
     <script>
       var goButton = document.getElementById("go");
-    
+      var numberOfAnts = 100;
       var clear = false;
-      var m = 1;
-      var n = 1.01;
-      var refreshRate = 1.01;
+
       onButtonClick = function() {
         clear = true;
-        m = document.getElementById("input1").value;
-        n = document.getElementById("input2").value;
+        numberOfAnts = document.getElementById("input1").value;
 
       }
       goButton.addEventListener("click", onButtonClick);
