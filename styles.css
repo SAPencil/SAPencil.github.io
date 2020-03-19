@@ -458,3 +458,48 @@ header {
         width: calc(100% + 1em)
     }
 }
+
+@media (min-width: 600px) {
+    .portfolio-content {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas:
+            "display interface";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .portfolio-content__display {
+        grid-area: display;
+        align-self: center;
+    }
+
+    .portfolio-content__interface {
+        grid-area: interface;
+        align-self:center;
+        justify-self: center;
+        border-style: groove;
+        display: grid;
+        grid-template-areas: 
+            "input1 input2"
+            "go go";
+    
+    }
+
+    #go {
+        justify-self: center;
+        grid-area: go;
+    }
+
+    #input1Container {
+        justify-self: center;
+        grid-area: input1;
+    }
+
+    #input2Container {
+        justify-self: center;
+        grid-area: input2;
+    }
+
+}
