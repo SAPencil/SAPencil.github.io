@@ -243,7 +243,7 @@ header {
 .intro {
     display: grid;
     width: min-content;
-    margin: 0 auto;
+    margin: 0 2em;
     grid-column-gap: 1em;
     grid-template-areas:
         "img title"
