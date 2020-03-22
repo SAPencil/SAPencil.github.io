@@ -393,9 +393,11 @@ header {
 .social-list__item img {
     vertical-align: middle;
     filter: grayscale(100%);
-    padding: none;
-    margin: none;
+    padding: 0px;
+    margin: 0px;
     display: inline;
+    height: 1.4em;
+    width: auto;
 }
 
 .social-list__link {
