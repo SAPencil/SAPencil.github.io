@@ -57,6 +57,7 @@ section {
 img {
     display: block;
     width: 100%;
+
 }
 
 strong {  font-weight: var(--fw-bold)}
@@ -331,12 +332,17 @@ header {
 .portfolio__item {
     background: var(--clr-accent);
     overflow: hidden;
+    border-style: solid;
+    border-color: var(--clr-dark);
 }
 
 .portfolio__img{
     transition:
-    transform 750ms cubic-bezier(.5, 0, .5, 1),
-    opacity 250ms linear;
+        transform 750ms cubic-bezier(.5, 0, .5, 1),
+        opacity 250ms linear;
+    object-fit: cover;
+    height:100%;
+
 }
 
 .portfolio__item:focus {
@@ -430,7 +436,6 @@ header {
     }
 
     .portfolio-info__img {
-
         grid-area: img;
         max-width: 250px;
         min-width: 200px;
