@@ -78,7 +78,6 @@
         <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "/pdes/antcolony.pde">
         </canvas>
       </div>
-      <!-- The button for changing number of ants doesn't work at the moment 
         <div class = "portfolio-content__interface">
         
         Number of Ants: <input type = "number" value = 100 id = "input1"></input>
@@ -86,12 +85,11 @@
         <button class = "btn" id="go" type="button">Go!</button>
         
       </div>
-    -->
     </section>
     <script src="index.js"></script>
     <script>
       var goButton = document.getElementById("go");
-      var numberOfAnts = 100;
+      var numberOfAnts = 1;
       var clear = false;
 
       onButtonClick = function() {
