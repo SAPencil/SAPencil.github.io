@@ -130,24 +130,33 @@ for (var i = 0; i < numberOfAnts; i++) {
     ants[i] = new Ant(); 
 }
 
+
+
 draw = function() {
     background(255, 255, 255);
-    
+
+    if (clear) {
+    ants = [];
+    for (var i = 0; i < numberOfAnts; i++) {
+    ants[i] = new Ant(); 
+}
+    }
+   
     for (i = 0; i < ants.length; i++){
         ants[i].display();
         ants[i].update();
     }
     leader.display();
     leader.update();
-//The button for changing number of ants doesn't work at the moment
- /*   if (clear === true ) {
-        fill(0,0,0);
+
+    if (clear === true ) {
+        fill(250,250,250);
         rect(0,0,width,width);
 
         clear = false;
 
     }
-*/
+
 };
 
 
