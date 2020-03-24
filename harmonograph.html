@@ -3,6 +3,7 @@
   <head>
     <title> Digital Harmonograph</title>
     <script src="processing.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <meta charset="UTF-8">
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
@@ -84,7 +85,7 @@
         
         <div id="input1Container"> Pendulum 1 frequency: <input type = "number" value = 1 id="input1"></input></div>
         
-        <div id="input2Container">Pendulum 2 frequency: <input type = "number" value = 1.01 id="input1"></input></div>
+        <div id="input2Container">Pendulum 2 frequency: <input type = "number" value = 1.01 id="input2"></input></div>
         
         <button class = "btn" id="go" type="button">Go!</button>
         
@@ -92,19 +93,19 @@
     </section>
     <script src="index.js"></script>
     <script>
-      var goButton = document.getElementById("go");
-    
       var clear = false;
       var m = 1;
       var n = 1.01;
       var refreshRate = 1.01;
       onButtonClick = function() {
         clear = true;
-        m = document.getElementById("input1").value;
-        n = document.getElementById("input2").value;
-
+        m = $("#input1").val();
+        n = $("#input2").val();
       }
-      goButton.addEventListener("click", onButtonClick);
+
+      $("#go").on("click", 
+        onButtonClick
+      );
 
     </script>
   </body>
