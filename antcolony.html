@@ -66,7 +66,7 @@
     
     <section class="portfolio-info">
     
-      <p class ="portfolio-info__text" > This applet has a few 'walkers' who all have some amount of randomness in their directional choices, but tend to follow the leader. The leader ant has randomness in her directional choices too, but tends to follow YOU. Try pressing arrow buttons on your keyboard to lure the leader up, down, left or right.
+      <p class ="portfolio-info__text" > This applet has a few 'walkers' who all have some amount of randomness in their directional choices, but tend to follow the leader. The leader ant has randomness in her directional choices too, but tends to follow YOU.<br><br>Try pressing arrow buttons to lure the leader up, down, left or right.
       </p>
       <img src="/pictures/leaderAnt.png" class ="portfolio-info__img">
       <p class="portfolio-info__subtitle section__subtitle">Applet         
@@ -84,11 +84,13 @@
         Number of Ants: <input type = "number" value = 10 id = "input1"></input>
         
         <button class = "btn" id="go" type="button">Spawn ants!</button>
-        <button id = "left" type = "button">Left</button>
-        <button id = "right" type = "button">Right</button>
-        <button id = "up" type = "button">Up</button>
-        <button id = "down" type = "button">down</button>
-
+       
+        <span id = "directions">
+          <button class = "btn" id = "leftButton" type = "button">Left</button>
+          <button class = "btn" id = "rightButton" type = "button">Right</button>
+          <button class = "btn" id = "upButton" type = "button">Up</button>
+          <button class = "btn" id = "downButton" type = "button">Down</button>
+        </span>
         
       </div>
     </section>
@@ -110,42 +112,43 @@
       }
       goButton.addEventListener("click", onButtonClick);
 
-      $("#left").on("mousedown",
+      $("#leftButton").on("mousedown",
       function() {
         left = true;
+        
       })
 
-      $("#left").on("mouseup",
+      $("#leftButton").on("mouseup",
       function() {
         left = false;
       })
 
-      $("#right").on("mousedown",
+      $("#rightButton").on("mousedown",
       function() {
         right = true;
       })
 
-      $("#right").on("mouseup",
+      $("#rightButton").on("mouseup",
       function() {
         right = false;
       })
 
-      $("#up").on("mousedown",
+      $("#upButton").on("mousedown",
       function() {
         up = true;
       })
 
-      $("#up").on("mouseup",
+      $("#upButton").on("mouseup",
       function() {
         up = false;
       })
 
-      $("#down").on("mousedown",
+      $("#downButton").on("mousedown",
       function() {
         down = true;
       })
 
-      $("#down").on("mouseup",
+      $("#downButton").on("mouseup",
       function() {
         down = false;
       })

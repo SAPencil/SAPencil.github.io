@@ -139,6 +139,7 @@ draw = function() {
     if (left) {
             fill(255,0,0)
     rect(0,0,5,width);
+    console.log("left")
     }
 
     if (right) {
@@ -157,10 +158,10 @@ draw = function() {
     }
 
     if (clear) {
-    ants = [];
-    for (var i = 0; i < numberOfAnts; i++) {
-    ants[i] = new Ant(); 
-}
+        ants = [];
+        for (var i = 0; i < numberOfAnts; i++) {
+            ants[i] = new Ant(); 
+        }
     }
    
     for (i = 0; i < ants.length; i++){

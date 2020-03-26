@@ -485,7 +485,9 @@ header {
         display: grid;
         grid-template-areas: 
             "input1 input2"
-            "go go";
+            "go go"
+            "directions directions";
+            row-gap: 7px;
     
     }
 
@@ -507,5 +509,34 @@ header {
         justify-self: center;
         grid-area: input2;
     }
+    #directions {
+        grid-area: directions;
+        display:grid;
+        grid-template-areas:
+            "up up up"
+            "left down right";
+    }
 
+    #upButton {
+        grid-area:up;
+        transform: none;
+        justify-self: center;
+        
+
+    }
+
+    #leftButton {
+        grid-area: left;
+        transform: none;
+        }
+
+    #rightButton {
+        grid-area: right;
+        transform: none;
+        }
+
+    #downButton {
+        grid-area: down;
+        transform: none;
+        }
 }
