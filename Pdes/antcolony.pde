@@ -24,19 +24,20 @@ var LeaderAnt = function() {
 LeaderAnt.prototype.update = function() {
     
     //Directing the leader with arrow keys
-    if (keyPressed && keyCode === 38) { // if up, tend to move up
+    if (up /*keyPressed && keyCode === 38*/) { // if up, tend to move up
     this.acceleration.x = random(-0.5,0.5);
     this.acceleration.y = random (-0.55,0.45);
+
     
-    } else if (keyPressed && keyCode === 40) { // if down tend down
+    } else if (down) { // if down tend down
     this.acceleration.x = random(-0.5,0.5);
     this.acceleration.y = random (-0.45,0.55);
     
-    } else if (keyPressed && keyCode === 37) { // if left tend left
+    } else if (left) { // if left tend left
     this.acceleration.x = random(-0.55,0.45);
     this.acceleration.y = random (-0.5,0.5);
     
-    } else if (keyPressed && keyCode === 39) { // if right tend right
+    } else if (right) { // if right tend right
     this.acceleration.x = random(-0.45,0.55);
     this.acceleration.y = random (-0.5,0.5);
     
@@ -134,6 +135,26 @@ for (var i = 0; i < numberOfAnts; i++) {
 
 draw = function() {
     background(255, 255, 255);
+
+    if (left) {
+            fill(255,0,0)
+    rect(0,0,5,width);
+    }
+
+    if (right) {
+            fill(255,0,0)
+    rect(width-5,0,5,width);
+    }
+
+    if (up) {
+            fill(255,0,0)
+    rect(0,0,width,5);
+    }
+
+    if (down) {
+            fill(255,0,0)
+    rect(0,width-5,width,5);
+    }
 
     if (clear) {
     ants = [];

@@ -4,6 +4,7 @@
     <title> Ant colony</title>
     <script src="processing.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <meta charset="UTF-8">
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" 
@@ -80,17 +81,27 @@
       </div>
         <div class = "portfolio-content__interface">
         
-        Number of Ants: <input type = "number" value = 100 id = "input1"></input>
+        Number of Ants: <input type = "number" value = 10 id = "input1"></input>
         
-        <button class = "btn" id="go" type="button">Go!</button>
+        <button class = "btn" id="go" type="button">Spawn ants!</button>
+        <button id = "left" type = "button">Left</button>
+        <button id = "right" type = "button">Right</button>
+        <button id = "up" type = "button">Up</button>
+        <button id = "down" type = "button">down</button>
+
         
       </div>
     </section>
     <script src="index.js"></script>
     <script>
       var goButton = document.getElementById("go");
-      var numberOfAnts = 1;
+      var numberOfAnts = 10;
       var clear = false;
+      var up = false;
+      var down = false;
+      var left = false;
+      var right = false;
+
 
       onButtonClick = function() {
         clear = true;
@@ -99,6 +110,45 @@
       }
       goButton.addEventListener("click", onButtonClick);
 
+      $("#left").on("mousedown",
+      function() {
+        left = true;
+      })
+
+      $("#left").on("mouseup",
+      function() {
+        left = false;
+      })
+
+      $("#right").on("mousedown",
+      function() {
+        right = true;
+      })
+
+      $("#right").on("mouseup",
+      function() {
+        right = false;
+      })
+
+      $("#up").on("mousedown",
+      function() {
+        up = true;
+      })
+
+      $("#up").on("mouseup",
+      function() {
+        up = false;
+      })
+
+      $("#down").on("mousedown",
+      function() {
+        down = true;
+      })
+
+      $("#down").on("mouseup",
+      function() {
+        down = false;
+      })
     </script>
   </body>
  </html>
