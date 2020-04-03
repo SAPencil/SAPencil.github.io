@@ -146,7 +146,11 @@ header {
     max-width: 100px;
 }
 
-.nav {
+.logo:hover {
+    transform: rotate(1turn);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+.nav {  
     position: fixed;
     background: var(--clr-dark);
     color: var(--clr-light);
