@@ -1,18 +1,13 @@
-
-    // The ants in this colony just want to folow the leader
 frameRate(100);
 size(400,400);
 background(240,240,240);
-
-    // The ants in this colony just want to folow the leader
-
 
 var Ant = function() {
     this.actPosition = new PVector (random(0,width), random(0, height)); 
     this.position = this.actPosition;
     this.velocity = new PVector (0,0);
     this.acceleration = new PVector (0,0);
-    this.display = function() {
+    this.display = function() {//Draw the ant
         stroke(0, 0, 0);
         fill(0, 0, 0);
         ellipse(this.position.x, this.position.y, 3, 5);
@@ -28,20 +23,15 @@ var Ant = function() {
         line(this.position.x,this.position.y, this       .position.x-4,this.position.y);
         line(this.position.x,this.position.y, this       .position.x-4, this.position.y-2);
         line(this.position.x-4, this.position.y-2        ,this.position.x-4, this.position.y-4);
-
-
+    };
 };
-};
-
-
 
 var LeaderAnt = function() {
     this.actPosition = new PVector (random(0,width), random(0, height)); 
     this.position = this.actPosition;
     this.velocity = new PVector (0,0);
     this.acceleration = new PVector (0,0);
-
-    this.display = function() {
+    this.display = function() {//Draw the ant
         fill(250, 10, 10);
         ellipse(this.position.x, this.position.y, 6, 10);
         ellipse(this.position.x, this.position.y-5,6,8);
@@ -58,11 +48,10 @@ var LeaderAnt = function() {
         line(this.position.x,this.position.y, this.position.x-8, this.position.y-4);
         line(this.position.x-8, this.position.y-4,this.position.x-8, this.position.y-8);
     };
-
     this.update = function() {
         
         //Directing the leader with arrow keys
-        if (up /*keyPressed && keyCode === 38*/) { // if up, tend to move up
+        if (up) { // if up, tend to move up
         this.acceleration.x = random(-0.5,0.5);
         this.acceleration.y = random (-0.55,0.45);
 
@@ -88,7 +77,6 @@ var LeaderAnt = function() {
         this.velocity.limit(1);
         this.actPosition.add(this.velocity);
         
-        
         //Now wrap arround the screen, but without changing the 'actual position' variable when the ant goes off screen
         
         //for x
@@ -113,6 +101,7 @@ Ant.prototype.update = function() {
     this.velocity.limit(1);
     this.actPosition.add(this.velocity);
     
+    //Wrap around the screen
     if (this.position.x > 0) {
     this.position.x = this.actPosition.x%400;
     } else {
@@ -123,8 +112,6 @@ Ant.prototype.update = function() {
     } else {
         this.position.y = this.actPosition.y%400;}
 };
-    
-//how many ants would you like?
 
 var ants = [];
 
@@ -137,10 +124,10 @@ for (var i = 0; i < numberOfAnts; i++) {
 draw = function() {
     background(255, 255, 255);
 
+    //User feedback on right/left/up/right
     if (left) {
             fill(255,0,0)
     rect(0,0,5,width);
-
     }
 
     if (right) {
@@ -179,7 +166,4 @@ draw = function() {
         clear = false;
 
     }
-    
-
-
 };
