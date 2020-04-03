@@ -4,7 +4,10 @@
     box-sizing: border-box;
 }
 
-
+/* Logo yellow: #FFF256, #E2D74A, #B7AD3E
+Logo pink:#FE77F7
+Logo wood: #FFF9AB, #DBD694, #EDE69E
+Logo metal: #B9B9B7*/
 
 :root {
     --ff-primary: 'Oxygen' ;
@@ -13,9 +16,9 @@
     --fw-reg: 300;
     --fw-bold: 900;
 
-    --clr-light: rgb(212, 238, 245);
-    --clr-dark: #4f4f4f;
-    --clr-accent: #16e0bd;
+    --clr-light: #FFF9AB;
+    --clr-dark: #393939;
+    --clr-accent: #E2D74A; 
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
