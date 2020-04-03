@@ -66,8 +66,7 @@ img {
 strong {  font-weight: var(--fw-bold)}
 
 :focus {
-    outline: 1px solid var(--clr-accent);
-    outline-offset: 3px;
+    outline-style: none;
 }
 
 /* Buttons */
@@ -195,6 +194,8 @@ header {
     top: 1em;
     z-index: 1000;
 }
+
+
 .nav-open .nav {
     transform: translateX(0);
 }
@@ -219,14 +220,17 @@ header {
     position: relative;
 }
 
+
 .hamburger,
 .hamburger::before,
 .hamburger::after {
+
     background: var(--clr-accent);
     width: 2em;
     height: 3px;
     border-radius: 1em;
     transition: transform 250ms ease-in-out;
+    
 }
 
 .hamburger::before,
