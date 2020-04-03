@@ -94,13 +94,15 @@
     <script src="index.js"></script>
     <script>
       var clear = false;
-      var m = 1;
-      var n = 1.01;
-      var refreshRate = 1.01;
-      onButtonClick = function() {
+      var mTemp;
+      var nTemp;
+      var pencilIsUp=true;
+      function onButtonClick () {
+        pencilIsUp = false;
+       mTemp = $("#input1").val();
+      nTemp = $("#input2").val();
+        
         clear = true;
-        m = $("#input1").val();
-        n = $("#input2").val();
       }
 
       $("#go").on("click", onButtonClick);
