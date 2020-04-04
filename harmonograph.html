@@ -87,6 +87,8 @@
         
         <div id="input2Container">Pendulum 2 frequency: <input type = "number" value = 1.01 id="input2"></input></div>
         
+        <div id="input3Container">Release delay: <input type = "number" value = 0 id="input3"></input></div>
+
         <button class = "btn" id="go" type="button">Go!</button>
         
       </div>
@@ -96,13 +98,14 @@
       var clear = false;
       var mTemp;
       var nTemp;
-      var pencilIsUp=true;
+      var releaseDelayTemp;
       function onButtonClick () {
-        pencilIsUp = false;
-       mTemp = $("#input1").val();
+
+      mTemp = $("#input1").val();
       nTemp = $("#input2").val();
+      releaseDelayTemp = $('#input3').val();
         
-        clear = true;
+      clear = true;
       }
 
       $("#go").on("click", onButtonClick);
