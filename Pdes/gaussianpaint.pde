@@ -1,3 +1,7 @@
+frameRate(500);
+size(400,400);
+background(240,240,240);
+
 var generator = new Random(1);
 var sD = 50;
 var mean = 200;
