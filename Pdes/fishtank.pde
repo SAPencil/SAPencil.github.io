@@ -1,4 +1,5 @@
-
+frameRate = 5;
+size(400,400);
 var x=0;
 // var fish = function (centreX, centreY, facing, speed, size) {
 var fish=function(centerX,centerY,facing,R,G,B,size, speed){
@@ -14,8 +15,8 @@ fill(bodyColor);
 ellipse(centerX, centerY, bodyLength, bodyHeight);// body
 
 triangle(centerX+facing*bodyLength/2, centerY,
-         centerX+facing*bodyLength/2+facing*tailWidth/2+facing*sin(x*1000/size)*0.5*tailWidth, centerY-tailHeight,
-         centerX+facing*bodyLength/2+0.5*facing*tailWidth+facing*sin(x*1000/size)*0.5*tailWidth, centerY+tailHeight);
+         centerX+facing*bodyLength/2+facing*tailWidth/2+facing*Math.sin(x*10/size)*0.5*tailWidth, centerY-tailHeight,
+         centerX+facing*bodyLength/2+0.5*facing*tailWidth+facing*Math.sin(x*10/size)*0.5*tailWidth, centerY+tailHeight);
 // eye
 fill(33, 33, 33);
 ellipse(centerX-facing*bodyLength/4, centerY, bodyHeight/5,bodyHeight/5);
@@ -24,7 +25,7 @@ ellipse(centerX-facing*bodyLength/4, centerY, bodyHeight/5,bodyHeight/5);
 var savedX = 0;
 var savedY = 0;
  
-var draw = function() {
+draw = function() {
    background(89, 216, 255);
     fish((200+2*x)%600-100,100,-1,249,142,49,100);
     fish((300+0.7*x)%400,200,-1,85,51,361,14);

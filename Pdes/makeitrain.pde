@@ -2,6 +2,10 @@
 This project uses a random number generator to create rain drops and a separate random number to decide whether lightnight will strike. At the moment no lightning bolts appear. Maybe someone would like to add this?
 */
 
+frameRate(500);
+size(400,400);
+
+
 var xPositions = [];
 var yPositions = [];
 var m = 93;//To increase the chance of lightning, decrease this variable.

@@ -1,3 +1,6 @@
+frameRate(500);
+size(400,400);
+
 background(219, 255, 255);
 
 fill(174, 180, 214);
