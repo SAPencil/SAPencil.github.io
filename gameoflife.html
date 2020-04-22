@@ -1,7 +1,7 @@
  <!DOCTYPE html>
  <html>
   <head>
-    <title> Digital Harmonograph</title>
+    <title> Game of Life</title>
     <script src="processing.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -59,57 +59,65 @@
 
     <section class="intro">
       <h1 class="section__title section__title--intro">
-          A digital <strong>harmonograph</strong>
+          Conway's <strong>Game of Life</strong>
       </h1>
-      <p class="section__subtitle section__subtitle--intro">A hypnotic curve generator</p>
-      <img src="/pictures/harmonographexample.png" alt = "an example of harmongraph" class="intro__img">
+      <p class="section__subtitle section__subtitle--intro">A cellular automaton</p>
+      <img src="/pictures/jconway.jpg" alt = "John Horton Conway infront of a blackboard" class="intro__img">
     </section>
 
     
     <section class="portfolio-info">
-      <p class="portfolio-info__subtitle section__subtitle">What's a harmonograph?         
+      <p class="portfolio-info__subtitle section__subtitle">The rules      
       </p>
-      <p class ="portfolio-info__text" >This applet models a mechanical harmonograph, a mechanical apparatus that employs pendulums to create a geometric image. It can be viewed as a visualisation of harmonic consonance and dissonance, an area of particular interest to me as a musician. Reading <a href = "https://www.amazon.co.uk/Harmonograph-Visual-Guide-Mathematics-Wooden/dp/1904263364/ref=sr_1_1?crid=27T225X4P31UA&keywords=harmonograph&qid=1579366634&sprefix=harmonograph%2Caps%2C270&sr=8-1" target = "_blank" style = "font-style:italic;">Harmonograph: A Visual Guide to the Mathematics of Music by Anthony Ashton</a> initially got me interested in harmonographs. Watch <a href = "https://www.youtube.com/watch?v=H4YQonwQUDs" target = "_blank">this video</a> to get a quick idea of how they work. 
-      </p>
-      <img src="/pictures/harmonograph.jpg" class ="portfolio-info__img">
+      <p class ="portfolio-info__text" > I had no idea who John Horton Conway was until he sadly died of Covid-19 on 11th April 2020. I was made aware of his work by <a target="_blank" href = "https://xkcd.com/2293/">xkcd's tribute</a>, which I've replicated in the initial state of the grid below. He has said that he hated the "Game of Life", which he created the rules for, as it overshawdowed other work he did which he thought more worthy of interest. But here it is: Cells which are 'alive', die from over-population if they have more than 3 neighbours, die from under-population if they have less than 3 neighbours, and otherwise survive. Dead cells come to life if they have exactly 3 live neighbours. And from thos simple rules come some splendid displays! Some configurations are static, some annihalate themselves pretty quickly, but some move accross the screen, or emmit other figures from them like a gun! Have a play!   </p>
+      <img src="/pictures/glidergun.png" alt = "A glider gun" class ="portfolio-info__img">
       
     
     </section>      
 
     <section class = "portfolio-content">
       <div class = "portfolio-content__display">
-        <canvas  width = "400" height = "400" style="border:1px solid #000000;" data-processing-sources = "Pdes/harmonograph.pde">
+        <canvas style="border:1px solid #000000;" data-processing-sources = "Pdes/gameoflife.js">
         </canvas>
       </div>
       <div class = "portfolio-content__interface">
         
-        <div id="input1Container"> Pendulum 1 frequency: <input type = "number" value = 1 id="input1"></input></div>
-        
-        <div id="input2Container">Pendulum 2 frequency: <input type = "number" value = 1.01 id="input2"></input></div>
-        
-        <div id="input3Container">Release delay: <input type = "number" value = 0 id="input3"></input></div>
-
-        <button class = "btn" id="go" type="button">Go!</button>
-        
+        <button class = "btn" id="gobut" type="button">   Go!   </button>
+        <button class = "btn" id="clear" type="button">Clear</button>
+      <!--  Side length:
+        <input type="number" id="sidelength" min="5" max="100" value = 10>
+        -->
       </div>
     </section>
     <script src="index.js"></script>
     <script>
-      var clear = false;
-      var mTemp;
-      var nTemp;
-      var releaseDelayTemp;
-      function onButtonClick () {
-
-      mTemp = $("#input1").val();
-      nTemp = $("#input2").val();
-      releaseDelayTemp = $('#input3').val();
-
-      clear = true;
+      var start = false;
+      
+      function onStopClick() {
+        start = false;
+        $("#stop").html("   Go!   ");
+        $("#stop").attr("id","gobut");
+        $("#gobut").on("click",onGoClick);
       }
+      function onGoClick () {
+        start = true;
+        $("#gobut").html("Stop!");
+        $("#gobut").attr("id","stop");
+        $("#stop").on("click", onStopClick);
+        
+      }
+      $("#gobut").on("click", onGoClick);
 
-      $("#go").on("click", onButtonClick);
 
+
+      var clear = false;
+      function onClearClick () {
+        clear = true;
+      }
+      $("#clear").on("click", onClearClick);
+
+      //var numOfColumns_interface = $("#sidelength").val();
+ 
     </script>
   </body>
  </html>

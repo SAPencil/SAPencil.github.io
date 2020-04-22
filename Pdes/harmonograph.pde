@@ -6,7 +6,7 @@ background(240,240,240);
 
     var decay = 0.00005;//0.00005 gives a pleasing amount of decay of the swing of the pendulum. I'm not sure how 'natural' this decay is.
     var refreshRate = 0.01;//to speed up the drawing, increase this variable, although large values will reveal jagged edges to the curves.
-    var releaseDelay =0;//Different patterns can be observed if the second pendulum is released after the first (or in this program, started at a different point in its swing). Enter the number (or fraction) of swings of the first pendulum you would like to pass before releasing the second.
+    var releaseDelay = 0;//Different patterns can be observed if the second pendulum is released after the first (or in this program, started at a different point in its swing). Enter the number (or fraction) of swings of the first pendulum you would like to pass before releasing the second.
 
     translate(width/2, height/2);
     scale(1, -1);  
@@ -39,8 +39,8 @@ background(240,240,240);
         
         m = mTemp;
         n = nTemp;
-        pencil.oldXPos = 0;
-        pencil.oldYPos = 0;
+        releaseDelay = releaseDelayTemp;
+      
         t = 0; 
         rect(-width/2,-width/2,width,width);
         amp = width/2-10;
@@ -56,10 +56,10 @@ background(240,240,240);
 
         //Update and draw new line
         if (clear === true ) {
-            pencil.oldXPos = 0;
-            pencil.oldYPos = 0;
-            pencil.xPos = 0;
-            pencil.yPos = 0;
+            pencil.oldXPos = amp*(Math.sin(m*(t-releaseDelay*Math.PI)));
+            pencil.oldYPos = amp*(Math.sin(n*t));
+            pencil.xPos = pencil.oldXPos;
+            pencil.yPos = pencil.oldYPos;
             clear = false;
         } else {
         pencil.update(amp*(Math.sin(m*(t-releaseDelay*Math.PI))),amp*(Math.sin(n*t)));
