@@ -135,6 +135,7 @@ i++;
 }
 
 //Toggle alive/dead on mouse click.
+/*
 void mouseClicked() {
     var cellColumn = Math.floor(mouseX/cellWidth);
     var cellRow = Math.floor(mouseY/cellHeight);
@@ -146,10 +147,19 @@ void mouseClicked() {
     }
     cell[cellColumn][cellRow].display();
 }
-
-
+*/
+var create = true;
 
 void draw() {
+    var cellColumn = Math.floor(mouseX/cellWidth);
+    var cellRow = Math.floor(mouseY/cellHeight);
+
+    if (mousePressed == false) {
+        create = !cell[cellColumn][cellRow].alive;
+    } else {
+        cell[cellColumn][cellRow].alive = create;
+        cell[cellColumn][cellRow].display();
+    }
 
     if (start === true) {
 
