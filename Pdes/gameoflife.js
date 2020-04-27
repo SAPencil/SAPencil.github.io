@@ -1,12 +1,10 @@
-
-frameRate(10);
+frameRate(100);
 size(1000,1000);
 background(255,255,255);
 
 fill(0,0,0);
 
 const numOfRows = 50;
-
 const numOfColumns = numOfRows;
 const cellWidth = width/numOfColumns;
 const cellHeight = height/numOfRows;
@@ -20,7 +18,8 @@ function Cell(x,y) {
     this.survive = false;
     this.deadNeighbours = [ [x-1,y-1], [x-1,y], [x-1,y+1], [x,y-1], [x,y+1], [x+1,y-1], [x+1,y], [x+1,y+1]];
     this.liveNeighbours = [];
-    this.checkNeighbours = function() {
+    
+    this.update = function() {
         //Check if any of the 'dead neighbours' are actually alive
         var i = 0;
         while (i < this.deadNeighbours.length) {
@@ -53,19 +52,10 @@ function Cell(x,y) {
             } else {
                 i++;
             }
-        } 
-    
-    };
-    this.display = function() {
-        if (this.alive) {
-            fill(0,0,0);
-        } else {
-            fill(255,255,255);
         }
-        rect(this.xPos, this.yPos, cellWidth, cellHeight);
-    }
-    //The rules of going on to the next generation
-    this.update = function() {
+
+        //Decide if this cell will survive to the next generation
+    
         if (this.alive && (this.liveNeighbours.length < 2 || this.liveNeighbours.length > 3)) {
             this.survive = false;
         } else if (this.alive) {
@@ -75,7 +65,17 @@ function Cell(x,y) {
         } else {
             this.survive = false;
         }
+        
     };
+    //Draw the cell
+    this.display = function() {
+        if (this.alive) {
+            fill(0,0,0);
+        } else {
+            fill(255,255,255);
+        }
+        rect(this.xPos, this.yPos, cellWidth, cellHeight);
+    }
     
 };
 
@@ -162,13 +162,6 @@ void draw() {
     }
 
     if (start === true) {
-
-        //Check how many liveNeighbours each cell has. And alter their deadNeighhbours and liveNeighbours arrays accordingly
-        for (var i = 0; i < cell.length; i++) {
-            for (var j = 0; j < cell[i].length; j++) {
-                cell[i][j].checkNeighbours();
-            }
-        }
         
         //Update all cells, deciding whether they should survive or not.
         for (var i = 0; i < cell.length; i++) {
@@ -181,17 +174,9 @@ void draw() {
         for (var i = 0; i < cell.length; i++) {
             for (var j = 0; j < cell[i].length; j++) {
                 cell[i][j].alive = cell[i][j].survive;
+                cell[i][j].display(); 
             }
         }
-
-        //Display all cells.
-        for (var i = 0; i < cell.length; i++) {
-            for (var j = 0; j < cell[i].length; j++) {
-
-                cell[i][j].display();
-            }
-        }
-
     }
     if (clear === true) {
         console.log(1);
