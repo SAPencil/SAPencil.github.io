@@ -1,9 +1,10 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
  <html>
   <head>
     <title> Game of Life</title>
     <script src="processing.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <meta charset="UTF-8">
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
@@ -25,20 +26,20 @@
         gtag('config', 'UA-161015048-1');
     </script>
 
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NKKM27J');</script>
-  <!-- End Google Tag Manager -->
+        <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NKKM27J');</script>
+      <!-- End Google Tag Manager -->
 
   </head>
   <body> 
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKKM27J"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+        <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKKM27J"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
   
     <header>        
       <div class="logo"><a href = "index.html">
@@ -71,8 +72,6 @@
       </p>
       <p class ="portfolio-info__text" > I had no idea who John Horton Conway was until he sadly died of Covid-19 on 11th April 2020. I was made aware of his work by <a target="_blank" href = "https://xkcd.com/2293/">xkcd's tribute</a>, which I've replicated in the initial state of the grid below. He has said that he hated the "Game of Life", which he created the rules for, as it overshawdowed other work he did which he thought more worthy of interest. But here it is: Cells which are 'alive', die from over-population if they have more than 3 neighbours, die from under-population if they have less than 3 neighbours, and otherwise survive. Dead cells come to life if they have exactly 3 live neighbours. And from thos simple rules come some splendid displays! Some configurations are static, some annihalate themselves pretty quickly, but some move accross the screen, or emmit other figures from them like a gun! Have a play!   </p>
       <img src="/pictures/glidergun.png" alt = "A glider gun" class ="portfolio-info__img">
-      
-    
     </section>      
 
     <section class = "portfolio-content">
@@ -89,8 +88,11 @@
         -->
       </div>
     </section>
+
     <script src="index.js"></script>
+    
     <script>
+      
       var start = false;
         
       function onGoClick() {
@@ -99,7 +101,7 @@
           $("#gobut").html("Stop!");
 
         } else {
-          $("#gobut").html("    Go!   ");
+          $("#gobut").html("Go!");
 
         }
       }

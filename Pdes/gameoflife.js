@@ -2,6 +2,7 @@ frameRate(100);
 size(1000,1000);
 background(255,255,255);
 
+
 fill(0,0,0);
 
 const numOfRows = 50;
@@ -97,7 +98,7 @@ j = 0;
 i++;
 }
 
-//Initial conditions
+//Initial conditions. Currectly set to stick man
 var centerX = Math.floor(numOfColumns/2);
 var centerY = Math.floor(numOfRows/2);
 cell[centerX][centerY].alive = true;
@@ -134,42 +135,27 @@ j=0;
 i++;
 }
 
-//Toggle alive/dead on mouse click.
-/*
-void mouseClicked() {
-    var cellColumn = Math.floor(mouseX/cellWidth);
-    var cellRow = Math.floor(mouseY/cellHeight);
-    
-    if (cell[cellColumn][cellRow].alive) {
-        cell[cellColumn][cellRow].alive = false;
-    } else {
-        cell[cellColumn][cellRow].alive = true;
-    }
-    cell[cellColumn][cellRow].display();
-}
-*/
 var create = true;
 
 void draw() {
+    //Allow user to change status of cell on mousePressed
     var cellColumn = Math.floor(mouseX/cellWidth);
     var cellRow = Math.floor(mouseY/cellHeight);
-
     if (mousePressed == false) {
         create = !cell[cellColumn][cellRow].alive;
     } else {
         cell[cellColumn][cellRow].alive = create;
         cell[cellColumn][cellRow].display();
     }
-
+    
+    //Game animation once started
     if (start === true) {
-        
         //Update all cells, deciding whether they should survive or not.
         for (var i = 0; i < cell.length; i++) {
             for (var j = 0; j < cell[i].length; j++) {
                 cell[i][j].update();
             }
         }
-
         //Kill cells which should be dead, resurrect cells which should be alive.
         for (var i = 0; i < cell.length; i++) {
             for (var j = 0; j < cell[i].length; j++) {
@@ -178,6 +164,8 @@ void draw() {
             }
         }
     }
+
+    //To kill all cells
     if (clear === true) {
         console.log(1);
         for (var i = 0; i < cell.length; i++) {
