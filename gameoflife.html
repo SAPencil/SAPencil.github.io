@@ -92,23 +92,19 @@
     <script src="index.js"></script>
     <script>
       var start = false;
-      
-      function onStopClick() {
-        start = false;
-        $("#stop").html("   Go!   ");
-        $("#stop").attr("id","gobut");
-        $("#gobut").on("click",onGoClick);
-      }
-      function onGoClick () {
-        start = true;
-        $("#gobut").html("Stop!");
-        $("#gobut").attr("id","stop");
-        $("#stop").on("click", onStopClick);
         
+      function onGoClick() {
+        start = !start;
+        if (start == true) {
+          $("#gobut").html("Stop!");
+
+        } else {
+          $("#gobut").html("    Go!   ");
+
+        }
       }
+
       $("#gobut").on("click", onGoClick);
-
-
 
       var clear = false;
       function onClearClick () {
@@ -116,7 +112,6 @@
       }
       $("#clear").on("click", onClearClick);
 
-      //var numOfColumns_interface = $("#sidelength").val();
  
     </script>
   </body>
