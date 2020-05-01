@@ -10,8 +10,190 @@ const numOfColumns = numOfRows;
 const cellWidth = width/numOfColumns;
 const cellHeight = height/numOfRows;
 
-var cell = [];
 
+//Create two blank grids
+
+var grid = [];
+let n = 0;
+while (n < numOfColumns) {
+    grid.push([])
+    n ++;
+}
+let i = 0;
+let j = 0;
+while (i < numOfColumns) {
+    while (j < numOfRows) {
+        grid[i].push(0);
+        j ++;
+    }
+j = 0;
+i++;
+}
+
+
+
+
+//Initial conditions. Currectly set to stick man
+var centerX = Math.floor(numOfColumns/2);
+var centerY = Math.floor(numOfRows/2);
+grid[centerX][centerY] = 1;
+grid[centerX][centerY-1] = 1;
+grid[centerX][centerY-2] = 1;
+grid[centerX][centerY-3] = 1;
+grid[centerX-1][centerY-4] = 1;
+grid[centerX-1][centerY-5] = 1;
+grid[centerX-1][centerY-6] = 1;
+grid[centerX][centerY-6] = 1;
+grid[centerX+1][centerY-6] = 1;
+grid[centerX+1][centerY-5] = 1;
+grid[centerX+1][centerY-4] = 1;
+grid[centerX+1][centerY-2] = 1;
+grid[centerX+1][centerY+1] = 1;
+grid[centerX+1][centerY+2] = 1;
+grid[centerX+2][centerY-1] = 1;
+grid[centerX+3][centerY] = 1;
+grid[centerX-1][centerY-2] = 1;
+grid[centerX-1][centerY+1] = 1;
+grid[centerX-1][centerY+2] = 1;
+grid[centerX-2][centerY-1] = 1;
+grid[centerX-3][centerY-2] = 1;
+
+
+//A reference array for the neighbours of a cell
+function neighbours(x,y) {
+    return [
+        [x-1,y-1],
+        [x-1,y],
+        [x-1,y+1],
+        [x,y-1],
+        [x,y+1],
+        [x+1,y-1],
+        [x+1,y],
+        [x+1,y+1]]
+}
+
+
+function update() {
+    gridNew = [];
+    for (var i = 0; i < grid.length; i++) {
+
+        gridNew.push([]);
+
+        for (var j = 0; j < grid[i].length; j++) {
+            
+                //Cycle through the neighbours of this cell (neighbours(i,j)) and if the cell reference is within the grid, add the value in the cell to aliveNeighbours.
+                var aliveNeighbours = 0;
+                for (let n = 0; n < 8; n++) {
+                    if (neighbours(i,j)[n][0] >= 0 &&
+                        neighbours(i,j)[n][0] < numOfColumns &&
+                        neighbours(i,j)[n][1] >= 0 &&
+                        neighbours(i,j)[n][1] < numOfRows) {
+
+                            aliveNeighbours += grid [neighbours(i,j)[n][0]] [neighbours(i,j)[n][1]];
+                        }
+                }
+            
+            
+            //Decide if this cell will survive to the next generation
+            if (grid[i][j] == 1) {
+                if (aliveNeighbours ==2 || aliveNeighbours == 3) {
+                gridNew[i].push(1);
+                } else {
+                gridNew[i].push(0);
+                }
+            } else if (aliveNeighbours == 3) {
+                gridNew[i].push(1);
+            } else {
+                gridNew[i].push(0);
+            }
+        }
+    }
+}
+
+
+
+
+function display() {
+    for (var i = 0; i < grid.length; i++) {
+        for (var j = 0; j < grid[i].length; j++) {
+            if (grid[i][j] === 1) {
+                fill(0,0,0);
+            } else {
+                fill(255,255,255);
+            }
+            
+            rect(i*cellWidth,j*cellHeight,cellWidth,cellHeight);
+        }
+    }
+
+}
+
+display();
+        
+var ink = true;
+var cellColumn = 0;
+var cellRow = 0;
+
+void draw() {
+    //Allow user to change status of cell on mousePressed
+
+    if( mouseX > 0 &&
+        mouseX < width &&
+        mouseY > 0 &&
+        mouseY < height) {
+        cellColumn = Math.floor(mouseX/cellWidth);
+        cellRow = Math.floor(mouseY/cellHeight);
+        }
+
+   if (!mousePressed) {
+        if (grid[cellColumn][cellRow] == 0) {
+            ink = true;
+        } else {
+            ink = false;
+        }
+    } else { 
+        if (ink) {
+            grid[cellColumn][cellRow] = 1;
+            fill(0,0,0)
+        } else {
+            grid[cellColumn][cellRow] = 0;
+            fill(255,255,255);
+        }
+        rect(cellColumn*cellWidth,cellRow*cellHeight,cellWidth,cellHeight);
+
+    }
+
+    //Game animation once started
+    if (start === true) {
+        update();
+        grid = gridNew;
+        display();
+    }
+
+    //To kill all cells
+
+    if (clear === true) {
+        var gridBlank = [];
+        for (var i = 0; i < grid.length; i++) {
+            gridBlank.push([]);
+            for (var j = 0; j < grid[i].length; j++) {
+                gridBlank[i].push(0);
+            }
+        }
+
+        grid = gridBlank;
+        display();
+        clear = false;
+    }
+
+}
+
+
+//First attempt at this project below. It works, but is not very neat.
+//It takes the view of the unit of interest as the cell, an object which keeps track of its status, its neighbours, whether they are alive or not, and whether it will survive to the next generation
+//Storing state of cell as a boolean was not a good idea, even though kindda logical.
+//Maybe debugging was easier. With each function defined on a single cell, I could let the functions play on single cells.
+/*
 function Cell(x,y) {
     this.xPos = x*cellWidth;
     this.yPos = y*cellHeight;
@@ -41,9 +223,9 @@ function Cell(x,y) {
         //Check if any of the 'live neighbours' are actually dead
         i = 0;
         while (i < this.liveNeighbours.length) {
-            if (this.liveNeighbours[i][0] > -1 &&
+            if (this.liveNeighbours[i][0] >= 0 &&
                 this.liveNeighbours[i][0] < numOfColumns &&
-                this.liveNeighbours[i][1] > -1 &&
+                this.liveNeighbours[i][1] >= 0 &&
                 this.liveNeighbours[i][1] < numOfRows) {
                 if (cell[this.liveNeighbours[i][0]][this.liveNeighbours[i][1]].alive === false) {
                     this.deadNeighbours.push(this.liveNeighbours.splice(i,1)[0]);
@@ -167,7 +349,7 @@ void draw() {
 
     //To kill all cells
     if (clear === true) {
-        console.log(1);
+
         for (var i = 0; i < cell.length; i++) {
             for (var j = 0; j < cell[i].length; j++) {
                 cell[i][j].alive = false;
@@ -177,4 +359,6 @@ void draw() {
         }
         clear = false;
     }
+
 }
+*/
