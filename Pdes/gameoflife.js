@@ -13,7 +13,7 @@ const cellHeight = height/numOfRows;
 
 //Create two blank grids
 
-var grid = [];
+let grid = [];
 let n = 0;
 while (n < numOfColumns) {
     grid.push([])
@@ -34,8 +34,8 @@ i++;
 
 
 //Initial conditions. Currectly set to stick man
-var centerX = Math.floor(numOfColumns/2);
-var centerY = Math.floor(numOfRows/2);
+let centerX = Math.floor(numOfColumns/2);
+let centerY = Math.floor(numOfRows/2);
 grid[centerX][centerY] = 1;
 grid[centerX][centerY-1] = 1;
 grid[centerX][centerY-2] = 1;
@@ -75,14 +75,14 @@ function neighbours(x,y) {
 
 function update() {
     gridNew = [];
-    for (var i = 0; i < grid.length; i++) {
+    for (let i = 0; i < grid.length; i++) {
 
         gridNew.push([]);
 
-        for (var j = 0; j < grid[i].length; j++) {
+        for (let j = 0; j < grid[i].length; j++) {
             
                 //Cycle through the neighbours of this cell (neighbours(i,j)) and if the cell reference is within the grid, add the value in the cell to aliveNeighbours.
-                var aliveNeighbours = 0;
+                let aliveNeighbours = 0;
                 for (let n = 0; n < 8; n++) {
                     if (neighbours(i,j)[n][0] >= 0 &&
                         neighbours(i,j)[n][0] < numOfColumns &&
@@ -108,14 +108,15 @@ function update() {
             }
         }
     }
+    grid = gridNew;
 }
 
 
 
 
 function display() {
-    for (var i = 0; i < grid.length; i++) {
-        for (var j = 0; j < grid[i].length; j++) {
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
             if (grid[i][j] === 1) {
                 fill(0,0,0);
             } else {
@@ -130,9 +131,9 @@ function display() {
 
 display();
         
-var ink = true;
-var cellColumn = 0;
-var cellRow = 0;
+let ink = true;
+let cellColumn = 0;
+let cellRow = 0;
 
 void draw() {
     //Allow user to change status of cell on mousePressed
@@ -166,17 +167,17 @@ void draw() {
     //Game animation once started
     if (start === true) {
         update();
-        grid = gridNew;
+
         display();
     }
 
     //To kill all cells
 
     if (clear === true) {
-        var gridBlank = [];
-        for (var i = 0; i < grid.length; i++) {
+        let gridBlank = [];
+        for (let i = 0; i < grid.length; i++) {
             gridBlank.push([]);
-            for (var j = 0; j < grid[i].length; j++) {
+            for (let j = 0; j < grid[i].length; j++) {
                 gridBlank[i].push(0);
             }
         }
@@ -204,7 +205,7 @@ function Cell(x,y) {
     
     this.update = function() {
         //Check if any of the 'dead neighbours' are actually alive
-        var i = 0;
+        let i = 0;
         while (i < this.deadNeighbours.length) {
             if (this.deadNeighbours[i][0] > -1 &&
                 this.deadNeighbours[i][0] < numOfColumns &&
@@ -281,8 +282,8 @@ i++;
 }
 
 //Initial conditions. Currectly set to stick man
-var centerX = Math.floor(numOfColumns/2);
-var centerY = Math.floor(numOfRows/2);
+let centerX = Math.floor(numOfColumns/2);
+let centerY = Math.floor(numOfRows/2);
 cell[centerX][centerY].alive = true;
 cell[centerX][centerY-1].alive = true;
 cell[centerX][centerY-2].alive = true;
@@ -317,12 +318,12 @@ j=0;
 i++;
 }
 
-var create = true;
+let create = true;
 
 void draw() {
     //Allow user to change status of cell on mousePressed
-    var cellColumn = Math.floor(mouseX/cellWidth);
-    var cellRow = Math.floor(mouseY/cellHeight);
+    let cellColumn = Math.floor(mouseX/cellWidth);
+    let cellRow = Math.floor(mouseY/cellHeight);
     if (mousePressed == false) {
         create = !cell[cellColumn][cellRow].alive;
     } else {
@@ -333,14 +334,14 @@ void draw() {
     //Game animation once started
     if (start === true) {
         //Update all cells, deciding whether they should survive or not.
-        for (var i = 0; i < cell.length; i++) {
-            for (var j = 0; j < cell[i].length; j++) {
+        for (let i = 0; i < cell.length; i++) {
+            for (let j = 0; j < cell[i].length; j++) {
                 cell[i][j].update();
             }
         }
         //Kill cells which should be dead, resurrect cells which should be alive.
-        for (var i = 0; i < cell.length; i++) {
-            for (var j = 0; j < cell[i].length; j++) {
+        for (let i = 0; i < cell.length; i++) {
+            for (let j = 0; j < cell[i].length; j++) {
                 cell[i][j].alive = cell[i][j].survive;
                 cell[i][j].display(); 
             }
@@ -350,8 +351,8 @@ void draw() {
     //To kill all cells
     if (clear === true) {
 
-        for (var i = 0; i < cell.length; i++) {
-            for (var j = 0; j < cell[i].length; j++) {
+        for (let i = 0; i < cell.length; i++) {
+            for (let j = 0; j < cell[i].length; j++) {
                 cell[i][j].alive = false;
                 cell[i][j].survive = false;
                 cell[i][j].display();
