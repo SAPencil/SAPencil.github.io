@@ -1,8 +1,9 @@
-frameRate = 5;
 size(400,400);
+frameRate = 5;
+
 var x=0;
-// var fish = function (centreX, centreY, facing, speed, size) {
-var fish=function(centerX,centerY,facing,R,G,B,size, speed){
+
+var fish = function(centerX,centerY,facing,R,G,B,size, speed){
 
 var bodyLength = size*1.18;
 var bodyHeight = size*0.74;

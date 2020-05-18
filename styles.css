@@ -57,14 +57,14 @@ section {
     padding: 3em 2em;
 }
 
-
 img {
     display: block;
     width: 100%;
-
 }
 
-strong {  font-weight: var(--fw-bold)}
+strong {
+    font-weight: var(--fw-bold)
+}
 
 :focus {
     outline-style: none;
@@ -89,6 +89,7 @@ strong {  font-weight: var(--fw-bold)}
 .btn:hover {
     transform: scale(1.1);
 }
+
 /*Typography */
 
 h1,
@@ -121,7 +122,8 @@ h3 {font-size: var(--fs-h3)}
 
 .section__subtitle--intro,
 .section__subtitle--about,
-.portfolio-info__subtitle {
+.portfolio-info__subtitle,
+.item-canvas-code__title {
     background: var(--clr-accent);
     padding: .25em 1em;
     font-family: var(--ff-secondary);
@@ -139,7 +141,6 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 1em;
-
 }
 
 .logo {
@@ -244,6 +245,7 @@ header {
 
 .hamburger::before {top: 6px;}
 .hamburger::after {bottom: 6px;}
+
  /*  Intro section  */
 
 .intro {
@@ -256,7 +258,7 @@ header {
 .intro {
     display: grid;
     width: min-content;
-    margin: 0 2em;
+    margin: 0 auto;
     grid-column-gap: 1em;
     grid-template-areas:
         "img title"
@@ -422,6 +424,11 @@ header {
     padding: .5em;
 }
 
+/* Portfolio item pages*/
+
+canvas {
+    box-shadow: var(--bs);
+}
 .portfolio-item-individual {
     padding: 0 2em 2em;
     max-width: 1000px;
@@ -490,6 +497,7 @@ header {
     }
 
     .portfolio-content__interface {
+        padding: 1em;
         grid-area: interface;
         align-self:center;
         justify-self: center;
@@ -551,4 +559,48 @@ header {
         grid-area: down;
         transform: none;
         }
+}
+
+.item-canvas-code {
+    position: relative;
+}
+
+
+@media (min-width: 600px) {
+.item-canvas-code {
+    display: grid;
+    width: min-content;
+    margin: 0 auto;
+    grid-column-gap: 1em;
+    grid-template-areas:
+        "title canvas"
+        "code canvas";
+    grid-template-columns: min-content max-content;
+}
+
+.item-canvas-code__canvas {
+    grid-area: canvas;
+    position: relative;
+    z-index: 2;
+
+}
+
+.item-canvas-code__title {
+    align-self: start;
+    grid-column: -1/1;
+    grid-row: 1;
+    text-align: left;
+    position: relative;
+
+    width: calc(100% + 1.5em)
+}
+
+.item-canvas-code__code {
+    min-width: 400px;
+    min-height: 300px;
+    overflow: scroll;
+    border: 1px solid var(--clr-dark);
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.15);
+
 }
