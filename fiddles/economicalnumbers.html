@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <meta charset = "UTF-8">
+    <link rel = "stylesheet" href = "/styles.css">
+    <title>Economical numbers</title>
+  </head>
+  <body>
+    <input type = "number" id = "num"></input>
+    <button id = "economise" class = "btn">
+      How economical is this number?
+    </button>
+    <div id="result">
+    
+    </div>
+  </body>
+  <script src = "economicalnumbers.js"></script>
+  <script>
+    function economise() {
+      var n = $("#num").val();
+      const isEconomic = isEconomical(n);
+      //Show result
+      $("#result").html(`${n} is ${isEconomic}`);
+    }
+    $("#economise").on("click", function() {economise()});
+  </script>
+</html>

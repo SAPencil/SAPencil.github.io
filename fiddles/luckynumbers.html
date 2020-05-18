@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <meta charset = "UTF-8">
+    <link rel = "stylesheet" href = "/styles.css">
+    <title>Lucky numbers</title>
+  </head>
+  <body>
+    Smaller number:
+    <input type = "number" id = "num1"></input>
+    Larger number:
+    <input type = "number" id = "num2"></input>
+    <button id = "luckIt" class = "btn">
+      How many luckies are there?
+    </button>
+    <div id="result">
+    
+    </div>
+  </body>
+  <script src = "luckynumbers.js"></script>
+  <script>
+
+    function lucky() {
+      const l = $("#num1").val();
+      const h = $("#num2").val();
+      const output = luckies(l,h);
+      $("#result").html(`There are ${output} lucky numbers between ${l} and ${h}`);
+    }
+    $("#luckIt").on("click", function() {lucky()});
+  </script>
+</html>

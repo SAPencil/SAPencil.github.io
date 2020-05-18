@@ -29,5 +29,3 @@ function stringFret(string, fret) {
         return "Invalid input"
     }
 }
-
-console.log(stringFret(-2, 0));

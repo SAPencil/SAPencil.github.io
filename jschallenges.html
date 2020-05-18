@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title> JavaScript mini challenges</title>
+   <script src="processing.js"></script>
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+   <meta charset="UTF-8">
+   <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+   <link rel = "stylesheet" 
+   href = "https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+   <link rel="stylesheet" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" 
+   integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+   
+   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700&display=swap" rel="stylesheet">
+   <link rel = "stylesheet" href = "/styles.css">
+   <!-- Global site tag (gtag.js) - Google Analytics  I don't need to track usage of this website. But I'm experimenting to understand how tags and analytics work-->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161015048-1"></script>
+   <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+
+       gtag('config', 'UA-161015048-1');
+   </script>
+
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayer','GTM-NKKM27J');</script>
+ <!-- End Google Tag Manager -->
+
+ </head>
+ <body> 
+   <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKKM27J"
+ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ <!-- End Google Tag Manager (noscript) -->
+ 
+   <header>        
+     <div class="logo"><a href = "index.html">
+       <img src = "/pictures/logo_color.png"></a>
+     </div>
+     <button class="nav-toggle" aria-label="toggle navigation">
+         <span class = "hamburger"></span>
+     </button>
+     <nav class = "nav">
+         <ul class = "nav__list">
+             <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+             <li class="nav__item"><a href="index.html#work" class="nav__link">My work</a></li>
+             <li class="nav__item"><a href="index.html#about" class="nav__link">About me</a></li>
+             <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+         </ul>
+     </nav>
+   </header>
+
+   <section class="intro">
+     <h1 class="section__title section__title--intro">
+         JavaScript  <strong>mini challenges</strong>
+     </h1>
+     <p class="section__subtitle section__subtitle--intro">  </p>
+     <!--<img src="/pictures/logowithwhite.jpg" alt = "SAPencil logo" class="intro__img">
+     -->
+    
+    </section>
+
+   
+   <section class="portfolio-info">
+     <p class="portfolio-info__subtitle section__subtitle"> edabit and interview cake
+     </p> 
+     <p class ="portfolio-info__text" > A key part of my learning of JavaScript has been through mini challenges like the ones on this page. They're not all that fun to play with, but they were fun to write! As well as thinking up my own, I get most of them from <a href = "https://edabit.com/user/sMYZQ74YDWuoFFNsz"> edabit</a> and <a href = "https://interviewcake.com">Interview Cake</a>'s weekly emails. For most, the bulk of the challenge came from controlling the logic. However, in each one I've tried to learn something new in JavaScript as well. And inevitably, in debugging while I go, I've had to learn and practice key concepts like hoisting, scope etc. 
+     </p>
+     <img src="/pictures/js.png" style = "background-color: white;" class ="portfolio-info__img">
+   
+   </section>      
+
+
+     <section class = "item-canvas-code">
+       <p class = "item-canvas-code__title">El Factorizor </p>
+       <iframe  class = "item-canvas-code__output" src = "/fiddles/factorise.html">
+       </iframe>
+       <iframe src = "/fiddles/factorise.js" class = "item-canvas-code__code"></iframe>
+      </section>
+
+      <section class = "item-canvas-code">
+        <p class = "item-canvas-code__title">Economical numbers </p>
+        <iframe  class = "item-canvas-code__output" src = "/fiddles/economicalnumbers.html">
+        </iframe>
+        <iframe src = "/fiddles/economicalnumbers.js" class = "item-canvas-code__code"></iframe>
+       </section>
+
+       <section class = "item-canvas-code">
+        <p class = "item-canvas-code__title">Lucky numbers </p>
+        <iframe  class = "item-canvas-code__output" src = "/fiddles/luckynumbers.html">
+        </iframe>
+        <iframe src = "/fiddles/luckynumbers.js" class = "item-canvas-code__code"></iframe>
+       </section>
+
+       <section class = "item-canvas-code">
+        <p class = "item-canvas-code__title">String and fret (Standard guitar tuning)</p>
+        <iframe  class = "item-canvas-code__output" src = "/fiddles/stringandfret.html">
+        </iframe>
+        <iframe src = "/fiddles/stringandfret.js" class = "item-canvas-code__code"></iframe>
+       </section>
+  
+   <script src="index.js"></script>
+   
+ </body>
+</html>

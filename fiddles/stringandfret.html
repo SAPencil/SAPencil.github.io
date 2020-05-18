@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <meta charset = "UTF-8">
+    <link rel = "stylesheet" href = "/styles.css">
+    <title>String and fret</title>
+  </head>
+  <body>
+    String number:
+    <input type = "number" id = "string"></input>
+    Fret number:
+    <input type = "number" id = "fret"></input>
+    <button id = "whatnote" class = "btn">
+      Play
+    </button>
+    <div id="result">
+    
+    </div>
+  </body>
+  <script src = "stringandfret.js"></script>
+  <script>
+
+    function whatnote() {
+      const string = $("#string").val();
+      const fret = $("#fret").val();
+      const output = stringFret(string, fret);
+      $("#result").html(`Laaaaa! I'm singing a ${output} by the way`);
+    }
+    $("#whatnote").on("click", function() {whatnote()});
+  </script>
+</html>
