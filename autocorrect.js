@@ -1,4 +1,4 @@
-/* This one's another one off my own back. I just thought one day, I wonder how autocorrects work. I'm sure it's not really like this, but I thought it would be a good start to one. My autocorrect currently deals with accidental sawps, accidental duplication of a letterr, and hitting a nearby key by accidenr. Only one error per word unfortunatly, and currently only single words, from the thousand most common words in the English language.*/
+/* This one's another one off my own back. I just thought one day, I wonder how autocorrects work. I'm sure it's not really like this, but I thought it would be a good start to one. My autocorrect currently deals with accidental sawps, accidental duplication of a letterr, and hitting a nearby key by accidenr. Only one error per word unfortunatly, and currently only single words.*/
 
 
 async function isWord(word) {
