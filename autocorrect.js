@@ -1,4 +1,4 @@
-/* I just thought one day, I wonder how autocorrects/spellcheckers work! I'm sure it's not really like this, but I it would be a good start to one, and gave me an opportunity to write my first API call! My autocorrect currently deals with accidental sawps, accidental duplication of a letterr, and hitting a nearby key by accidenr. Only one error per word, and currently only single words.*/
+/* I just thought one day, I wonder how autocorrects/spellcheckers work! I'm sure it's not really like this, but I it would be a good start to one, and gave me an opportunity to write my first API call! My autocorrect currently deals with accidental sawps, accidental duplication of a letterr, and hitting a nearby key by accidenr.*/
 
 
 async function APILookup(word) {
