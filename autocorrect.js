@@ -1,7 +1,7 @@
 /* I just thought one day, I wonder how autocorrects/spellcheckers work! I'm sure it's not really like this, but I it would be a good start to one, and gave me an opportunity to write my first API call! My autocorrect currently deals with accidental sawps, accidental duplication of a letterr, and hitting a nearby key by accidenr. Only one error per word, and currently only single words.*/
 
 
-async function isWord(word) {
+async function APILookup(word) {
         try {
         let myFetch = await fetch("https://wordsapiv1.p.rapidapi.com/words/"+word, {
                                     "method": "GET",
@@ -17,7 +17,12 @@ async function isWord(word) {
         }
     }
 
-async function undoSwaps (str) {
+function mostCommonLookup(word) {
+    return true
+}
+
+
+async function undoSwaps (str, isWord) {
     
     for( let i = 0; i < str.length-1; i++) {
         let testArr = str.split("");
@@ -31,7 +36,7 @@ async function undoSwaps (str) {
     }
 }
 
-async function deleteRepeats (str) {
+async function deleteRepeats (str, IsWord) {
     for( let i = 0; i < str.length-1; i++) {
         var testArr = str.split("");
         if (testArr[i] == testArr[i+1]) {
@@ -93,7 +98,7 @@ const qwertyProximities = {
     ",": ["m","k","l"],
     "\\": ["z","a"] 
 }
-async function qwertyProblems (input) {
+async function qwertyProblems (input, isWord) {
     const str = input.toLowerCase();
     for(let i = 0; i < str.length; i++) { //loop through the letters of the word
         var testArr = str.split("");
@@ -117,31 +122,56 @@ async function autoCorrect (str) {
         return "One word at a time please, I'm still learning!"
     }
     
-    var newIsWord = await isWord(str);
+    
+    //Check if it's spelled correctly
+    var newIsWord = await mostCommonLookup(str);
+    if(newIsWord) {
+        return `Well done, you spelled ${str} correctly`
+    };
+    
+    var newIsWord = await APILookup(str);
     if(newIsWord) {
         return `Well done, you spelled ${str} correctly`
     };
 
-    const repeats = await deleteRepeats(str);
-    if (repeats) {
-        return `I think you'll find that's spelled "${repeats}"`
+    //Check word with the 1000 most common words first
+    const repeatsCommon = await deleteRepeats(str, mostCommonLookup);
+    if (repeatsCommon) {
+        return `I think you'll find that's spelled "${repeatsCommon}"`
     }
     
-    const swaps = await undoSwaps(str);
-    if (swaps) {
-        return `I think you'll find that's spelled "${swaps}"`
+    const swapsCommon = await undoSwaps(str, mostCommonLookup);
+    if (swapsCommon) {
+        return `I think you'll find that's spelled "${swapsCommon}"`
     }
 
-    const qwerty = await qwertyProblems(str);
-    if (qwerty) {
-        return `I think you'll find that's spelled "${qwerty}"`
+    const qwertyCommon = await qwertyProblems(str, mostCommonLookup);
+    if (qwertyCommon) {
+        return `I think you'll find that's spelled "${qwertyCommon}"`
+    }
+
+
+    //Now check word with the API
+    const repeatsAPI = await deleteRepeats(str, APILookup);
+    if (repeatsAPI) {
+        return `I think you'll find that's spelled "${repeatsAPI}"`
+    }
+    
+    const swapsAPI = await undoSwaps(str, APILookup);
+    if (swapsAPI) {
+        return `I think you'll find that's spelled "${swapsAPI}"`
+    }
+
+    const qwertyAPI = await qwertyProblems(str, APILookup);
+    if (qwertyAPI) {
+        return `I think you'll find that's spelled "${qwertyAPI}"`
     }
 
    
 return "That spelling is so bad I can't fix it"
 }
 
-
+/*
 
 //Button functionality
 
@@ -153,3 +183,9 @@ async function run(input) {
 }
 
 $("#correct").on("click", function() {run($("#input").val())});
+*/
+async function log () {
+const toLog = await autoCorrect("ood")
+console.log(toLog);
+}
+log();
