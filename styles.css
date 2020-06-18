@@ -617,3 +617,37 @@ canvas {
     border: 1px solid var(--clr-dark);
     border-radius: 10px;
 }
+}
+/*input output boxes */
+
+.simple-interface {
+    padding: 20px 20px 20px 20px;
+    display: grid;
+    grid-template-areas: 
+    "input"
+    "button"
+    "output";
+
+}
+
+.simple-interface .inputField {
+    grid-area: input;
+    align-self: end;
+    width: 100%;
+}
+
+
+
+.simple-interface .result {
+    grid-area: output;
+}
+
+.simple-interface .btn {
+    grid-area: button;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+input {
+
+}

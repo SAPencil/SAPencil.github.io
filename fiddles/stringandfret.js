@@ -26,6 +26,6 @@ function stringFret(string, fret) {
         const str = string - 1;
         return notes[(strings[str] + fret)%notes.length];
     } else {
-        return "Invalid input"
+        return null
     }
 }

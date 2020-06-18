@@ -2,20 +2,23 @@
 <html>
   <head>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700&display=swap" rel="stylesheet">
     <meta charset = "UTF-8">
     <link rel = "stylesheet" href = "/styles.css">
     <title>Lucky numbers</title>
   </head>
   <body>
-    Smaller number:
-    <input type = "number" id = "num1"></input>
-    <br>Larger number:
-    <input type = "number" id = "num2"></input>
-    <button id = "luckIt" class = "btn">
-      How many luckies are there?
-    </button>
-    <div id="result">
-    
+    <div class = "simple-interface">
+      <div>
+        <input class = "inputField" type = "number" id = "num1" placeholder = "smaller number"></input>
+        <input class = "inputField" type = "number" id = "num2" placeholder = "larger number"></input>
+      </div>
+      <button id = "luckIt" class = "btn">
+        How many luckies are there?
+      </button>
+      <div id="result">
+      
+      </div>
     </div>
   </body>
   <script src = "luckynumbers.js"></script>
@@ -25,7 +28,12 @@
       const l = $("#num1").val();
       const h = $("#num2").val();
       const output = luckies(l,h);
+      if(l<=h){
+
       $("#result").html(`There are ${output} lucky numbers between ${l} and ${h}`);
+      } else {
+        $("#result").html("Please input the smaller number in the top box. Thank you!");
+      }
     }
     $("#luckIt").on("click", function() {lucky()});
   </script>

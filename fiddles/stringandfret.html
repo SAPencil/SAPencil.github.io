@@ -2,18 +2,20 @@
 <html>
   <head>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700&display=swap" rel="stylesheet">
     <meta charset = "UTF-8">
     <link rel = "stylesheet" href = "/styles.css">
     <title>String and fret</title>
     </head>
     <body>
-    String number:
-    <input type = "number" id = "string"></input>
-    <br>Fret number:
-    <input type = "number" id = "fret"></input>
-    <button id = "whatnote" class = "btn">
-      Play
-    </button>
+    <div class = "simple-interface"> 
+      <input type = "number" id = "string" placeholder = "string number" class = "inputField"></input>
+
+      <input type = "number" id = "fret" placeholder = "fret number" class = "inputField"></input>
+      <button id = "whatnote" class = "btn">
+        Play
+      </button>
+  </div>
     <div id="result">
     
     </div>
@@ -25,7 +27,11 @@
       const string = $("#string").val();
       const fret = $("#fret").val();
       const output = stringFret(string, fret);
+      if(output) {
       $("#result").html(`Laaaaa! I'm singing a ${output} by the way`);
+      } else {
+        $("#result").html("Something's gone wrong. String number should be a number between 1 and 6, and fret number should be between 0 and 24");
+      }
     }
     $("#whatnote").on("click", function() {whatnote()});
   </script>
