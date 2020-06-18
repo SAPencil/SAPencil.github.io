@@ -1,5 +1,5 @@
 /*Write a function that gets a string number and a fret of a 6-string guitar in 'standard tuning' and return the corresponding note. For this challenge we use a 24 fret model.
-
+[Sam note: I initially just wrote a function which returns the note as a string. Then I got curious about audio files and html so I recorded myself playing guitar (sorry for the audio quality!) and got it to play a note instead!]
 The notes are:
 
 C, C#/Db, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B
@@ -29,3 +29,4 @@ function stringFret(string, fret) {
         return null
     }
 }
+

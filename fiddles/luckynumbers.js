@@ -1,7 +1,7 @@
 
 /* This one came from a task I did on an interview. Lucky numbers are numbers with at least one 6, or at least one 8, but not both.
 The task is to return the number of lucky numbers between two numbers.
-When I tried this solution, it worked, but was too slow with large numbers, so I didn't get full points! :(*/
+When I tried this solution, it worked, but was too slow with large numbers, so I didn't get full points. Contact me if you'd like to help me make it more efficient.*/
 
 function luckies(l,h) {
     numOfLuckies = 0;
