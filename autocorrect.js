@@ -77,15 +77,15 @@ const qwertyProximities = {
     g: ["f","v","b","h","y","t","r"],
     h: ["g","b","n","j","u","y","t"],
     j: ["h","n","m","k","i","u","y"],
-    k: ["j","m",",","l","o","i","u"],
-    l: ["k",",",".",";","p","o","i"],
+    k: ["j","m","l","o","i","u"],
+    l: ["k",",","p","o","i"],
     z: ["a","s","x"],
     x: ["z","s","d","c"],
     c: ["x","d","f","v"],
     v: ["c","f","g","b"],
     b: ["v","g","h","n"],
     n: ["b","h","j","m"],
-    m: ["n","j","k",","],
+    m: ["n","j","k"],
     1: ["q","w"],
     2: ["q","w","e"],
     3: ["w", "e", "r"],
@@ -123,10 +123,6 @@ async function qwertyProblems (input, isWord) {
 
 
 async function autoCorrect (str) {
-    if(str.match(/ /)) {
-        return "One word at a time please, I'm still learning!"
-    }
-    
     
     //Check if it's spelled correctly
     var newIsWord = await mostCommonLookup(str);
@@ -179,20 +175,17 @@ return "That spelling is so bad I can't fix it"
 
 //Button functionality
 
+async function runInside(element) {
+    const output = await autoCorrect(element);
+    console.log(output);
+    $("#output").append(`<p> ${output} </p>`);
+    console.log(`you inputted ${element}`)
+}
+
 async function run(input) {
     $("#output").html("Ooo, let me think about that...");
-    const output = await autoCorrect(input);
-    $("#output").html(output);
-    console.log(`you inputted ${input}`)
+    inputArr = input.split(" ");
+    inputArr.forEach(runInside);
 }
 
 $("#correct").on("click", function() {run($("#input").val())});
-
-
-/* Test
-async function log () {
-const toLog = await autoCorrect("graonla")
-console.log(toLog);
-}
-log();
-*/
