@@ -371,6 +371,17 @@ header {
 
 }
 
+.logo-big {
+    align-self: center;
+    justify-self: center;
+}
+
+#logo-big-right {
+    transform: rotate(0.5turn);
+    transition: transform 0s cubic-bezier(.5, 0, .5, 1);
+}
+
+
 /*footer*/
 
 .footer {
