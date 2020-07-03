@@ -1,9 +1,5 @@
 /*Write a function that gets a string number and a fret of a 6-string guitar in 'standard tuning' and return the corresponding note. For this challenge we use a 24 fret model.
 [Sam note: I initially just wrote a function which returns the note as a string. Then I got curious about audio files and html so I recorded myself playing guitar (sorry for the audio quality!) and got it to play a note instead!]
-The notes are:
-
-C, C#/Db, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B
-Try not to use a 2 dimensional array. Look at the image on the bottom to see the note names on the guitar neck.
 
 Examples
 stringFret(2, 10) ➞ "A"
@@ -29,4 +25,3 @@ function stringFret(string, fret) {
         return null
     }
 }
-console.log(stringFret(2,0));

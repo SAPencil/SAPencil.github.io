@@ -76,9 +76,8 @@ async function qwertyProblems (input, isWord) {
     }
 }
 
-
 async function autoCorrect (str) {
-    
+    if(!str) return
     //Check if it's spelled correctly
     var newIsWord = await mostCommonLookup(str);
     if(newIsWord) {
@@ -136,15 +135,15 @@ return "That spelling is so bad I can't fix it"
 
 async function runInside(element) {
     const output = await autoCorrect(element);
-    console.log(output);
-    $("#output").append(`<p> ${output} </p>`);
-    console.log(`you inputted ${element}`)
+    if(output) {
+        $("#output").append(`<p> ${output} </p>`);
+    }
 }
 
 async function run(input) {
     $("#output").html("Ooo, let me think about that...");
     const lowerInput = input.toLowerCase();
-    const inputArr = lowerInput.split(" ");
+    const inputArr = lowerInput.split(/ |\n/);
     
     inputArr.forEach(runInside);
 }
