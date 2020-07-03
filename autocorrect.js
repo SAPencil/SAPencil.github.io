@@ -76,76 +76,64 @@ async function qwertyProblems (input, isWord) {
     }
 }
 
-async function autoCorrect (str) {
-    if(!str) return
+async function autoCorrect (word) {
+
+    if(!word) return //Ignore empty strings
+    
     //Check if it's spelled correctly
-    var newIsWord = await mostCommonLookup(str);
-    if(newIsWord) {
-        return `Well done, you spelled "${str}" correctly`
-    };
+    var newIsWord = await mostCommonLookup(word);
+    if(newIsWord) return `Well done, you spelled "${word}" correctly`
     
     console.log("API called");
-    var newIsWord = await APILookup(str);
-    
-    if(newIsWord) {
-        return `Well done, you spelled "${str}" correctly`
-    };
+    var newIsWord = await APILookup(word);
+    if(newIsWord) return `Well done, you spelled "${word}" correctly`
 
     //Check word with the 1000 most common words first
-    const repeatsCommon = await deleteRepeats(str, mostCommonLookup);
-    if (repeatsCommon) {
-        return `I think you'll find that's spelled "${repeatsCommon}"`
-    }
+    const repeatsCommon = await deleteRepeats(word, mostCommonLookup);
+    if (repeatsCommon) return `I think you'll find that's spelled "${repeatsCommon}"`
     
-    const swapsCommon = await undoSwaps(str, mostCommonLookup);
-    if (swapsCommon) {
-        return `I think you'll find that's spelled "${swapsCommon}"`
-    }
+    const swapsCommon = await undoSwaps(word, mostCommonLookup);
+    if (swapsCommon) return `I think you'll find that's spelled "${swapsCommon}"`
 
-    const qwertyCommon = await qwertyProblems(str, mostCommonLookup);
-    if (qwertyCommon) {
-        return `I think you'll find that's spelled "${qwertyCommon}"`
-    }
+    const qwertyCommon = await qwertyProblems(word, mostCommonLookup);
+    if (qwertyCommon) return `I think you'll find that's spelled "${qwertyCommon}"`
 
     $("#output").append(`<p> That's not a word I know. Give me a few seconds to consult the dictionary API </p>`);
     
     //Now check word with the API
     console.log("API called");
-    const repeatsAPI = await deleteRepeats(str, APILookup);
-    if (repeatsAPI) {
-        
-        return `I think you'll find that's spelled "${repeatsAPI}"`
-    }
+    const repeatsAPI = await deleteRepeats(word, APILookup);
+    if (repeatsAPI) return `I think you'll find that's spelled "${repeatsAPI}"`
     
-    const swapsAPI = await undoSwaps(str, APILookup);
-    if (swapsAPI) {
-        return `I think you'll find that's spelled "${swapsAPI}"`
-    }
+    const swapsAPI = await undoSwaps(word, APILookup);
+    if (swapsAPI) return `I think you'll find that's spelled "${swapsAPI}"`
 
-    const qwertyAPI = await qwertyProblems(str, APILookup);
-    if (qwertyAPI) {
-        return `I think you'll find that's spelled "${qwertyAPI}"`
-    }
-
+    const qwertyAPI = await qwertyProblems(word, APILookup);
+    if (qwertyAPI) return `I think you'll find that's spelled "${qwertyAPI}"`
    
-return "That spelling is so bad I can't fix it"
+    return `I can't correct "${word}"`
 }
 
 //Button functionality
 
-async function runInside(element) {
+async function runWord(element) {
     const output = await autoCorrect(element);
     if(output) {
         $("#output").append(`<p> ${output} </p>`);
     }
 }
+function strToWords(str) {
+    const lowerStr = str.toLowerCase();
+    return lowerStr.split(/\s/);
+}
 
 async function run(input) {
-    $("#output").html("Ooo, let me think about that...");
-    const lowerInput = input.toLowerCase();
-    const inputArr = lowerInput.split(/ |\n/);
+    $("#output").html("Thinking...");
+
+    const inputArr = strToWords(input);
+    inputArr.forEach(runWord);
     
-    inputArr.forEach(runInside);
+
 }
 
 $("#correct").on("click", function() {run($("#input").val())});
