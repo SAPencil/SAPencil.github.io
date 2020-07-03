@@ -16,7 +16,7 @@ stringFret(3, 0) ➞ "G"
 Notes
 If the string or fret number isn't correct return "Invalid input".*/
 
-const notes =["C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab", "A", "A#/Bb", "B"]
+const notes =["a C", "a C#/Db", "a D", "a D#/Eb", "an E", "an F", "an F#/Gb", "a G", "a G#/Ab", "an A", "an A#/Bb", "a B"]
 
 //Name the guitar string by the index of the array, notes
 const strings = [4,11,7,2,9,4];
@@ -29,4 +29,4 @@ function stringFret(string, fret) {
         return null
     }
 }
-
+console.log(stringFret(2,0));
