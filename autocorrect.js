@@ -132,8 +132,6 @@ async function run(input) {
 
     const inputArr = strToWords(input);
     inputArr.forEach(runWord);
-    
-
 }
 
 $("#correct").on("click", function() {run($("#input").val())});
