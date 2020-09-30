@@ -1,4 +1,4 @@
-//Ok, fair enough, this seems like the simplest thing a programmer can do. But I hasten to add, that for this challenge I have not used the + operator once (ok, apart from defining for loops). If you like, I'm exploring what adding really is to a computor. 
+//Ok, fair enough, this seems like the simplest thing a programmer can do. But I hasten to add, that for this challenge I have not used the + operator once (ok, apart from defining for loops). If you like, I'm exploring what adding really is to a computer.
 
 function decToReverseBin (num) {
 
