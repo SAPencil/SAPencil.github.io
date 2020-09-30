@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700&display=swap" rel="stylesheet">
+    <meta charset = "UTF-8">
+    <link rel = "stylesheet" href = "/styles.css">
+    <title>Add</title>
+  </head>
+  <body>
+    <div class = "simple-interface">
+      <div>
+        <input class = "inputField" type = "number" id = "num1" placeholder = "number 1"></input>
+        <input class = "inputField" type = "number" id = "num2" placeholder = "number 2"></input>
+      </div>
+      <button id = "addIt" class = "btn">
+        Add 
+      </button>
+      <div id="result">
+      
+      </div>
+    </div>
+  </body>
+  <script src = "add.js"></script>
+  <script>
+
+    function addIt() {
+      const num1 = $("#num1").val();
+      const num2 = $("#num2").val();
+      const output = add(num1,num2);
+      $("#result").html(`The sum of ${num1} and ${num2} is ${output}`);
+    }
+    $("#addIt").on("click", function() {addIt()});
+  </script>
+</html>
