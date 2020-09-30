@@ -28,7 +28,8 @@
       const num1 = $("#num1").val();
       const num2 = $("#num2").val();
       const output = add(num1,num2);
-      $("#result").html(`The sum of ${num1} and ${num2} is ${output}`);
+      const message = num1%1 !== 0 || num2%1 !== 0 ? `Please input integers only` : `The sum of ${num1} and ${num2} is ${output}`
+        $("#result").html(message);
     }
     $("#addIt").on("click", function() {addIt()});
   </script>
