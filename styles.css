@@ -17,9 +17,11 @@ Logo metal: #B9B9B7*/
     --fw-reg: 300;
     --fw-bold: 900;
 
-    --clr-light: #FFF9AB;
+    --clr-light: #CEF8E4;
     --clr-dark: #393939;
-    --clr-accent: #E2D74A; 
+    --clr-accent: #ABB0E4;
+    --clr-logo: #FFF256
+; 
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -330,7 +332,7 @@ header {
 
 .my-work {
     background-color: var(--clr-dark);
-    color: var(--clr-light);
+    color: var(--clr-accent);
     text-align: center;
 }
 
@@ -341,6 +343,8 @@ header {
 .portfolio {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    justify-content: end;
+    grid-auto-flow: dense;
 }
 
 .portfolio__item {
@@ -371,15 +375,6 @@ header {
 
 }
 
-.logo-big {
-    align-self: center;
-    justify-self: center;
-}
-
-#logo-big-right {
-    transform: rotate(0.5turn);
-    transition: transform 0s cubic-bezier(.5, 0, .5, 1);
-}
 
 
 /*footer*/
@@ -427,8 +422,6 @@ header {
     padding: 0px;
     margin: 0px;
     display: inline;
-    height: 1.4em;
-    width: auto;
 }
 
 .social-list__link {
